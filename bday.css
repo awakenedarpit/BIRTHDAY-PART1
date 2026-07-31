@@ -344,177 +344,153 @@ h1 em{
 }
 
 
-/* =========================
-   Hanging Polaroid Photos
-========================= */
+
+/*==========================
+    HANGING PHOTO WALL
+==========================*/
 
 .photo-wall{
     position:absolute;
-    width:100%;
-    height:100%;
-    left:0;
-    top:0;
+    inset:0;
     pointer-events:none;
 }
 
+/* Ropes */
+
+.photo-wall::before,
+.photo-wall::after{
+    content:"";
+    position:absolute;
+    left:5%;
+    width:90%;
+    height:3px;
+    background:#9a6f4a;
+    border-radius:50px;
+    box-shadow:0 0 8px rgba(255,220,120,.4);
+}
+
+.photo-wall::before{
+    top:14%;
+    transform:rotate(2deg);
+}
+
+.photo-wall::after{
+    top:52%;
+    transform:rotate(-2deg);
+}
+
+/* Fairy Lights */
+
+.photo-wall::before{
+    background:
+      radial-gradient(circle,#ffe79f 2px,transparent 3px) 0 0/40px 8px,
+      #8a6748;
+}
+
+.photo-wall::after{
+    background:
+      radial-gradient(circle,#ffe79f 2px,transparent 3px) 0 0/40px 8px,
+      #8a6748;
+}
+
+/* Photos */
+
 .photo{
-    position:relative;
-    width:82px;
+    position:absolute;
+    width:90px;
     background:white;
     padding:6px;
-    border-radius:10px;
-    box-shadow:0 12px 25px rgba(0,0,0,.25);
+    border-radius:8px;
+    box-shadow:0 10px 25px rgba(0,0,0,.28);
+    animation:swing 5s ease-in-out infinite;
     transform-origin:top center;
-    animation:swing 4s ease-in-out infinite;
 }
 
 .photo img{
     width:100%;
-    height:95px;
+    height:105px;
     object-fit:cover;
-    border-radius:6px;
+    border-radius:5px;
 }
 
 .photo span{
     display:block;
-    text-align:center;
     margin-top:6px;
+    text-align:center;
     font-size:11px;
+    color:#444;
     font-weight:700;
-    color:#555;
 }
+
+/* Hanging Thread */
 
 .string{
     position:absolute;
-    top:-35px;
-    left:50%;
     width:2px;
-    height:35px;
-    background:linear-gradient(to bottom,#ffffff,#bfbfbf);
+    background:#fff;
+    top:-28px;
+    left:50%;
+    height:28px;
     transform:translateX(-50%);
-    opacity:.9;
 }
 
-.p1{animation-delay:0s;}
-.p2{animation-delay:.8s;}
-.p3{animation-delay:1.6s;}
-.p4{animation-delay:2.4s;}
+/* Wooden Clip */
+
+.string::before{
+    content:"";
+    position:absolute;
+    top:-8px;
+    left:50%;
+    transform:translateX(-50%);
+    width:18px;
+    height:22px;
+    background:#b88452;
+    border-radius:2px;
+    box-shadow:
+    inset -2px 0 rgba(0,0,0,.12),
+    inset 2px 0 rgba(255,255,255,.15);
+}
+
+/* Position */
+
+.p1{
+    top:17%;
+    left:7%;
+    transform:rotate(-7deg);
+}
+
+.p2{
+    top:10%;
+    left:50%;
+    transform:translateX(-50%) rotate(2deg);
+}
+
+.p3{
+    top:17%;
+    right:7%;
+    transform:rotate(7deg);
+}
+
+.p4{
+    top:55%;
+    left:18%;
+    transform:rotate(-8deg);
+}
+
+.p5{
+    top:55%;
+    right:18%;
+    transform:rotate(8deg);
+}
 
 @keyframes swing{
 
 0%,100%{
-transform:rotate(-4deg);
+transform:rotate(-3deg);
 }
 
 50%{
-transform:rotate(4deg);
+transform:rotate(3deg);
 }
 
 }
-
-
-.string::before{
-    content:'';
-    position:absolute;
-    top:-5px;
-    left:50%;
-    transform:translateX(-50%);
-    width:8px;
-    height:8px;
-    background:#fff;
-    border-radius:50%;
-    box-shadow:0 0 8px rgba(255,255,255,.8);
-}
-
-
-.photo{
-    position:absolute;
-    width:80px;
-    background:#fff;
-    padding:6px;
-    border-radius:10px;
-    box-shadow:0 12px 25px rgba(0,0,0,.25);
-    transform-origin:top center;
-    animation:swing 4s ease-in-out infinite;
-}
-
-.photo img{
-    width:100%;
-    height:90px;
-    object-fit:cover;
-    border-radius:6px;
-}
-
-.photo span{
-    display:block;
-    margin-top:6px;
-    text-align:center;
-    font-size:11px;
-    font-weight:700;
-    color:#555;
-}
-
-.string{
-    position:absolute;
-    left:50%;
-    top:-35px;
-    width:2px;
-    height:35px;
-    background:#fff;
-    transform:translateX(-50%);
-}
-
-.string::before{
-    content:'';
-    position:absolute;
-    top:-6px;
-    left:50%;
-    transform:translateX(-50%);
-    width:8px;
-    height:8px;
-    background:#fff;
-    border-radius:50%;
-}
-
-
-
-.p1{
-    top:10%;
-    left:6%;
-}
-
-.p2{
-    top:4%;
-    left:50%;
-    transform:translateX(-50%);
-}
-
-.p3{
-    top:10%;
-    right:6%;
-}
-
-.p4{
-    top:46%;
-    left:18%;
-}
-
-.p5{
-    top:46%;
-    right:18%;
-}
-
-
-
-@keyframes swing{
-    0%,100%{
-        transform:rotate(-4deg);
-    }
-    50%{
-        transform:rotate(4deg);
-    }
-}
-
-
-
-
