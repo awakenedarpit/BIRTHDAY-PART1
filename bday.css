@@ -584,3 +584,11 @@ h1 em{
 }
 
 
+
+
+
+.decor.big{
+  font-size:clamp(24px, 4vw, 38px);
+}
+
+
