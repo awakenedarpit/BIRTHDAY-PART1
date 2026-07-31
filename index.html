@@ -309,7 +309,8 @@ function playMusic() {
   }
 }
 
-stage.addEventListener("pointerdown", playMusic, { once: true });
+document.addEventListener("click", playMusic, { once: true });
+document.addEventListener("touchstart", playMusic, { once: true });
 
 </script>
 
