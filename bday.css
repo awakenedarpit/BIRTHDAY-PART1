@@ -608,3 +608,47 @@ h1 em{
 .slide[data-index="0"]{
   position:relative;
 }
+
+
+
+.hero-row{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  max-width:760px;
+  width:100%;
+}
+
+.hero-text{
+  flex:1;
+  text-align:left;
+}
+
+.hero-photo{
+  flex-shrink:0;
+  width:clamp(140px, 30vw, 230px);
+}
+
+.hero-photo img{
+  width:100%;
+  height:auto;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 18px 34px rgba(0,0,0,.35);
+}
+
+/* on narrow phones, stack instead of side-by-side */
+@media (max-width:640px){
+  .hero-row{
+    flex-direction:column;
+    text-align:center;
+  }
+  .hero-text{
+    text-align:center;
+  }
+  .hero-photo{
+    width:clamp(150px, 55vw, 220px);
+    order:-1; /* photo above text on mobile — flip if you'd rather it stay below */
+  }
+}
