@@ -453,8 +453,8 @@ h1 em{
 .p2{ top:19%; left:50%; transform:translateX(-50%) rotate(2deg); }
 .p3{ top:13%; right:0%; transform:rotate(6deg); }
 
-.p4{ top:62%; left:0%;  transform:rotate(-6deg); }
-.p5{ top:62%; right:0%; transform:rotate(6deg); }
+.p4{ top:66%; left:0%;  transform:rotate(-6deg); }
+.p5{ top:66%; right:0%; transform:rotate(6deg); }
 
 @keyframes swing{
   0%,100%{ transform:rotate(-3deg); }
