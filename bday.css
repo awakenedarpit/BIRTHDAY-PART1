@@ -342,3 +342,71 @@ h1 em{
   .reason{font-size:13.5px;padding:13px 15px;}
   .balloon{width:38px;height:48px;}
 }
+
+
+/* =========================
+   Hanging Polaroid Photos
+========================= */
+
+.photo-wall{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:20px 0 25px;
+}
+
+.photo{
+    position:relative;
+    width:82px;
+    background:white;
+    padding:6px;
+    border-radius:10px;
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
+    transform-origin:top center;
+    animation:swing 4s ease-in-out infinite;
+}
+
+.photo img{
+    width:100%;
+    height:95px;
+    object-fit:cover;
+    border-radius:6px;
+}
+
+.photo span{
+    display:block;
+    text-align:center;
+    margin-top:6px;
+    font-size:11px;
+    font-weight:700;
+    color:#555;
+}
+
+.string{
+    position:absolute;
+    width:2px;
+    height:26px;
+    background:#ddd;
+    left:50%;
+    top:-26px;
+    transform:translateX(-50%);
+}
+
+.p1{animation-delay:0s;}
+.p2{animation-delay:.8s;}
+.p3{animation-delay:1.6s;}
+.p4{animation-delay:2.4s;}
+
+@keyframes swing{
+
+0%,100%{
+transform:rotate(-4deg);
+}
+
+50%{
+transform:rotate(4deg);
+}
+
+}
