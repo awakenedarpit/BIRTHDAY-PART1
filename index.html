@@ -141,6 +141,16 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 
   <div class="tap-hint" id="tapHint">tap anywhere →</div>
 
+
+<audio id="bgMusic" loop preload="auto" playsinline>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+   // ALL your JavaScript here
+</script>
+
 <script>
   const slides = document.querySelectorAll('.slide');
   const total = slides.length;
@@ -289,21 +299,22 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 
 const bgMusic = document.getElementById("bgMusic");
 
-document.addEventListener("click", async () => {
-  try {
-    bgMusic.volume = 0.5;
-    await bgMusic.play();
-  } catch (e) {
-    console.error(e);
+function playMusic() {
+  bgMusic.volume = 0.5;
+
+  if (bgMusic.paused) {
+    bgMusic.play()
+      .then(() => console.log("Music started"))
+      .catch(err => console.log("Play failed:", err));
   }
-}, { once: true });
+}
+
+stage.addEventListener("pointerdown", playMusic, { once: true });
 
 </script>
 
 
-<audio id="bgMusic" loop playsinline preload="auto">
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+
 
 </body>
 </html>
