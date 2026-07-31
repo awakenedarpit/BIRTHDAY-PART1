@@ -25,11 +25,18 @@
   <div class="stage" id="stage">
 
     <!-- Slide 1 -->
-    <section class="slide active" data-index="0">
+<section class="slide active" data-index="0">
+  <div class="hero-row">
+    <div class="hero-text">
       <div class="eyebrow">💗 For Someone Special 💗</div>
       <h1>Something Special For<em> My Favourite Person's</em> Birthday</h1>
       <p class="sub">Made With Love By Arpit Raj 🌸</p>
-    </section>
+    </div>
+    <div class="hero-photo">
+      <img src="images/hero.jpg" alt="">
+    </div>
+  </div>
+</section>
 
   <!-- ================= Slide 2 ================= -->
 <section class="slide" data-index="1">
@@ -110,6 +117,46 @@
     <div class="reason"><span class="ic">✨</span>You make ordinary moments feel magical</div>
     <div class="reason"><span class="ic">🎀</span>The world is genuinely better with you in it</div>
   </div>
+
+<span class="decor" style="top:8%; left:10%;">🌷</span>
+<span class="decor" style="top:14%; right:12%;">🪷</span>
+<span class="decor" style="top:22%; left:75%;">🌷</span>
+<span class="decor" style="top:5%; left:45%;">🪷</span>
+
+<span class="decor" style="top:68%; left:15%;">🌷</span>
+<span class="decor" style="top:75%; right:18%;">🪷</span>
+<span class="decor" style="top:85%; left:55%;">🌷</span>
+<span class="decor" style="top:78%; left:8%;">🪷</span>
+
+<span class="decor big" style="top:10%; left:20%;">🌹</span>
+<span class="decor big" style="top:6%; right:8%;">🌻</span>
+<span class="decor big" style="top:18%; left:55%;">💐</span>
+
+<span class="decor big" style="top:70%; right:10%;">🌹</span>
+<span class="decor big" style="top:80%; left:25%;">🌻</span>
+<span class="decor big" style="top:90%; right:35%;">💐</span>
+
+<span class="decor big" style="top:10%; left:20%;">🌟</span>
+<span class="decor big" style="top:6%; right:8%;">✨</span>
+<span class="decor big" style="top:18%; left:55%;">🔥</span>
+
+<span class="decor big" style="top:70%; right:10%;">✨</span>
+<span class="decor big" style="top:80%; left:25%;">🌟</span>
+<span class="decor big" style="top:90%; right:35%;">🔥</span>
+
+<span class="decor big" style="top:10%; left:20%;">🤭</span>
+<span class="decor big" style="top:6%; right:8%;">🎀</span>
+<span class="decor big" style="top:18%; left:55%;">🩷</span>
+
+<span class="decor big" style="top:70%; right:10%;">🤭</span>
+<span class="decor big" style="top:80%; left:25%;">🎀</span>
+<span class="decor big" style="top:90%; right:35%;">🩷</span>
+
+<span class="decor-float" style="top:12%; left:8%;">🌸</span>
+<span class="decor-float" style="top:75%; right:8%; animation-delay:1s;">💫</span>
+<span class="decor-float" style="top:65%; left:6%; animation-delay:.5s;">⭐</span>
+<span class="decor-float" style="top:18%; right:10%; animation-delay:1.5s;">🎀</span>
+
 </section>
 
     
@@ -313,13 +360,13 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 
   /* ---------- ambient floating stickers ---------- */
   const particleWrap = document.getElementById('particles');
-  const stickerEmojis = ['✨','🌸','💗','⭐','🎀','💫'];
+  const stickerEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function spawnParticle(){
     const p = document.createElement('div');
     p.className='particle';
     p.textContent = stickerEmojis[Math.floor(Math.random()*stickerEmojis.length)];
     p.style.left = Math.random()*100+'vw';
-    p.style.fontSize = (12 + Math.random()*10)+'px';
+    p.style.fontSize = (22 + Math.random()*16)+'px';
     const dur = 9 + Math.random()*9;
     p.style.animationDuration = dur+'s';
     particleWrap.appendChild(p);
@@ -329,7 +376,7 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
   for(let i=0;i<10;i++) setTimeout(spawnParticle, i*280);
 
   /* ---------- confetti burst for finale ---------- */
-  const confettiEmojis = ['💗','🎀','✨','🌸','⭐','💕'];
+  const confettiEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function fireConfetti(){
     const burst = document.getElementById('burst');
     for(let i=0;i<45;i++){
@@ -346,7 +393,7 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
   }
 
   /* ---------- tap sparkle trail ---------- */
-  const sparkleEmojis = ['✨','💫','⭐','🎀'];
+  const sparkleEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function spawnTapSparkle(x,y){
     for(let i=0;i<6;i++){
       const s = document.createElement('div');
