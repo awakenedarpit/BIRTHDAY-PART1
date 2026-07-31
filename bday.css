@@ -592,3 +592,19 @@ h1 em{
 }
 
 
+
+.decor-float{
+  position:absolute;
+  font-size:clamp(28px, 5vw, 44px);
+  opacity:.8;
+  pointer-events:none;
+  z-index:2;
+  filter:drop-shadow(0 0 8px rgba(255,200,220,.35));
+  animation:tinyFloat 3.5s ease-in-out infinite;
+}
+
+
+
+.slide[data-index="0"]{
+  position:relative;
+}
