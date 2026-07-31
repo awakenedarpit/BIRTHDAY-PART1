@@ -354,7 +354,7 @@ h1 em{
     align-items:flex-start;
     gap:18px;
     flex-wrap:wrap;
-    margin:20px 0 25px;
+    margin:-20px 0 40px;
 }
 
 .photo{
@@ -386,12 +386,13 @@ h1 em{
 
 .string{
     position:absolute;
-    width:2px;
-    height:26px;
-    background:#ddd;
+    top:-35px;
     left:50%;
-    top:-26px;
+    width:2px;
+    height:35px;
+    background:linear-gradient(to bottom,#ffffff,#bfbfbf);
     transform:translateX(-50%);
+    opacity:.9;
 }
 
 .p1{animation-delay:0s;}
@@ -409,4 +410,18 @@ transform:rotate(-4deg);
 transform:rotate(4deg);
 }
 
+}
+
+
+.string::before{
+    content:'';
+    position:absolute;
+    top:-5px;
+    left:50%;
+    transform:translateX(-50%);
+    width:8px;
+    height:8px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 0 8px rgba(255,255,255,.8);
 }
