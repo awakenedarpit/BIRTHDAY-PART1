@@ -572,3 +572,15 @@ h1 em{
 }
 
 
+
+.slide[data-index="2"]{
+  position:relative;
+}
+
+
+
+.slide[data-index="2"] .decor{
+  animation:tinyFloat 3s ease-in-out infinite;
+}
+
+
