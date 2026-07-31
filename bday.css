@@ -361,22 +361,48 @@ h1 em{
 .photo-wall::after{
     content:"";
     position:absolute;
-    left:5%;
-    width:90%;
-    height:3px;
-    background:#9a6f4a;
-    border-radius:50px;
-    box-shadow:0 0 8px rgba(255,220,120,.4);
+    left:4%;
+    width:92%;
+    height:40px;
+    border-top:3px solid #9b7149;
+    border-radius:50%;
+    box-shadow:0 0 12px rgba(255,215,120,.25);
 }
 
 .photo-wall::before{
-    top:14%;
-    transform:rotate(2deg);
+    top:9%;
 }
 
 .photo-wall::after{
-    top:52%;
-    transform:rotate(-2deg);
+    top:47%;
+}
+
+
+.photo-wall::before{
+    background:
+      radial-gradient(circle,#ffe58f 2px,transparent 3px) 0 0/32px 8px;
+    animation:lights 2s infinite alternate;
+}
+
+      /*Twinkling Fairy Lights*/
+
+
+.photo-wall::after{
+    background:
+      radial-gradient(circle,#ffe58f 2px,transparent 3px) 0 0/32px 8px;
+    animation:lights 2s infinite alternate;
+}
+
+@keyframes lights{
+
+0%{
+filter:brightness(.8);
+}
+
+100%{
+filter:brightness(1.4);
+}
+
 }
 
 /* Fairy Lights */
