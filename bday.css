@@ -371,14 +371,14 @@ h1 em{
     box-shadow:0 0 6px rgba(255,220,120,.4);
 }
 
-/* Top Rope */
+/* Rope 1 */
 .photo-wall::before{
-    top:15%;
+    top:13%;
 }
 
-/* Bottom Rope */
+/* Rope 2 */
 .photo-wall::after{
-    top:52%;
+    top:50%;
 }
 
 /* Fairy Lights */
