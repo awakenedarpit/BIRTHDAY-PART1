@@ -449,9 +449,9 @@ h1 em{
 }
 
 /* Positions — top row on rope-top, bottom row on rope-bottom */
-.p1{ top:13%; left:0%;  transform:rotate(-6deg); }
-.p2{ top:19%; left:50%; transform:translateX(-50%) rotate(2deg); }
-.p3{ top:13%; right:0%; transform:rotate(6deg); }
+.p1{ top:20%; left:0%;  transform:rotate(-6deg); }
+.p2{ top:30%; left:50%; transform:translateX(-50%) rotate(2deg); }
+.p3{ top:20%; right:0%; transform:rotate(6deg); }
 
 .p4{ top:70%; left:0%;  transform:rotate(-6deg); }
 .p5{ top:70%; right:0%; transform:rotate(6deg); }
