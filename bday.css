@@ -613,7 +613,7 @@ h1 em{
 
 .hero-row{
   display:flex;
-  align-items:center;
+  align-items: right;
   gap:28px;
   max-width:760px;
   width:100%;
