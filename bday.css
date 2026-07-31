@@ -467,14 +467,17 @@ h1 em{
 }
 
 .orbit{
-  margin-top:clamp(120px, 22vh, 200px);
+  margin-top:clamp(200px, 34vh, 280px);
   margin-bottom:18px;
   position:relative;
   z-index:3;
 }
 
-.slide[data-index="1"] h1{ margin-top:8px; }
-.slide[data-index="1"] .quote{ margin-top:10px; }
+.slide[data-index="1"] .quote{
+  margin-top:10px;
+  position:relative;
+  z-index:4;              /* sits above photo-wall's z-index:1 so it's never visually hidden */
+}
 
 @media (max-width:420px){
   .photo{ width:clamp(105px, 30vw, 140px); padding:7px 7px 12px; }
