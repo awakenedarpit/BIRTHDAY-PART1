@@ -422,15 +422,35 @@ filter:brightness(1.4);
 /* Photos */
 
 .photo{
-    position:absolute;
-    width:90px;
-    background:white;
-    padding:6px;
-    border-radius:8px;
-    box-shadow:0 10px 25px rgba(0,0,0,.28);
-    animation:swing 5s ease-in-out infinite;
-    transform-origin:top center;
+
+position:absolute;
+
+width:95px;
+
+background:#fff;
+
+padding:7px;
+
+border-radius:4px;
+
+box-shadow:
+
+0 15px 30px rgba(0,0,0,.28),
+
+0 4px 10px rgba(255,255,255,.08);
+
+transition:.35s;
+
+animation:swing 5s ease-in-out infinite;
+
 }
+
+.photo:hover{
+
+transform:scale(1.08);
+
+}
+
 
 .photo img{
     width:100%;
@@ -521,3 +541,30 @@ transform:rotate(3deg);
 }
 
 }
+
+
+.orbit{
+
+margin-top:25px;
+
+margin-bottom:18px;
+
+}
+
+
+
+.slide[data-index="1"] h1{
+
+margin-top:8px;
+
+}
+
+.slide[data-index="1"] .quote{
+
+margin-top:10px;
+
+}
+
+
+
+
