@@ -152,6 +152,7 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 </script>
 
 <script>
+  const bgMusic = document.getElementById("bgMusic");
   const slides = document.querySelectorAll('.slide');
   const total = slides.length;
   const progressEl = document.getElementById('progress');
@@ -223,12 +224,18 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
     if(e.key==='ArrowLeft') goTo(current-1);
   });
 
-  document.getElementById('replayBtn').addEventListener('click',(e)=>{
-    e.stopPropagation();
-    finaleFired = false;
-    document.getElementById('burst').innerHTML = '';
-    goTo(0);
-  });
+  document.getElementById('replayBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+
+  // Restart music from the beginning
+  bgMusic.currentTime = 0;
+  bgMusic.play();
+
+  // Reset slideshow
+  finaleFired = false;
+  document.getElementById('burst').innerHTML = '';
+  goTo(0);
+});
 
   /* ---------- theme toggle ---------- */
   themeToggle.addEventListener('click',(e)=>{
@@ -297,7 +304,6 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
   updateProgress();
 
 
-const bgMusic = document.getElementById("bgMusic");
 
 function playMusic() {
   bgMusic.volume = 0.5;
