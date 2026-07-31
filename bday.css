@@ -489,3 +489,64 @@ h1 em{
   .p4{ left:0%; }
   .p5{ right:0%; }
 }
+
+
+
+
+/* ===============================
+   SCATTERED MEMORY CLUSTER (Slide 3)
+================================*/
+.memory-cluster{
+  position:relative;
+  width:100%;
+  max-width:420px;
+  height:150px;
+  margin:6px auto 4px;
+  pointer-events:none;
+}
+
+.mem-photo{
+  position:absolute;
+  width:clamp(84px, 15vw, 108px);
+  background:#faf7f2;
+  padding:6px 6px 8px;
+  border-radius:4px;
+  box-shadow:0 10px 20px rgba(0,0,0,.28);
+  animation:memFloat 5s ease-in-out infinite;
+}
+.mem-photo img{
+  width:100%;
+  height:clamp(90px, 16vw, 116px);
+  object-fit:cover;
+  border-radius:2px;
+  display:block;
+}
+
+/* Washi tape strip instead of a clip */
+.mem-photo::before{
+  content:"";
+  position:absolute;
+  top:-10px;
+  left:50%;
+  width:44px;
+  height:20px;
+  background:repeating-linear-gradient(45deg, #ffb8cf, #ffb8cf 4px, #ff9fc0 4px, #ff9fc0 8px);
+  opacity:.85;
+  transform:translateX(-50%) rotate(-4deg);
+  box-shadow:0 2px 4px rgba(0,0,0,.15);
+}
+
+@keyframes memFloat{
+  0%,100%{ transform:translateY(0) rotate(var(--r)); }
+  50%{ transform:translateY(-5px) rotate(var(--r)); }
+}
+
+.m1{ top:0;   left:2%;  --r:-9deg;  transform:rotate(-9deg); z-index:2; }
+.m2{ top:14px; left:38%; --r:5deg;  transform:rotate(5deg);  z-index:3; }
+.m3{ top:4px;  right:3%; --r:8deg;  transform:rotate(8deg);  z-index:1; }
+
+@media (max-width:420px){
+  .memory-cluster{ height:130px; }
+  .mem-photo{ width:78px; }
+  .mem-photo img{ height:84px; }
+}
