@@ -449,11 +449,12 @@ h1 em{
 }
 
 /* Positions — top row on rope-top, bottom row on rope-bottom */
-.p1{ top:14%; left:4%; transform:rotate(-6deg); }
-.p2{ top:14%; left:50%; transform:translateX(-50%) rotate(2deg); }
-.p3{ top:14%; right:4%; transform:rotate(6deg); }
-.p4{ top:53%; left:14%; transform:rotate(-6deg); }
-.p5{ top:53%; right:14%; transform:rotate(6deg); }
+.p1{ top:13%; left:0%;  transform:rotate(-6deg); }
+.p2{ top:19%; left:50%; transform:translateX(-50%) rotate(2deg); }
+.p3{ top:13%; right:0%; transform:rotate(6deg); }
+
+.p4{ top:57%; left:2%;  transform:rotate(-6deg); }
+.p5{ top:57%; right:2%; transform:rotate(6deg); }
 
 @keyframes swing{
   0%,100%{ transform:rotate(-3deg); }
@@ -466,7 +467,7 @@ h1 em{
 }
 
 .orbit{
-  margin-top:95px;
+  margin-top:clamp(120px, 22vh, 200px);
   margin-bottom:18px;
   position:relative;
   z-index:3;
@@ -480,4 +481,8 @@ h1 em{
   .photo img{ height:clamp(120px, 34vw, 160px); }
   .photo .caption{ font-size:10.5px; }
   .decor{ font-size:14px; }
+}
+@media (max-width:420px){
+  .p4{ left:0%; }
+  .p5{ right:0%; }
 }
