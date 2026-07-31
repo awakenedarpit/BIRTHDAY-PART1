@@ -348,13 +348,13 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 
   /* ---------- ambient floating stickers ---------- */
   const particleWrap = document.getElementById('particles');
-  const stickerEmojis = ['✨','🌸','💗','⭐','🎀','💫'];
+  const stickerEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function spawnParticle(){
     const p = document.createElement('div');
     p.className='particle';
     p.textContent = stickerEmojis[Math.floor(Math.random()*stickerEmojis.length)];
     p.style.left = Math.random()*100+'vw';
-    p.style.fontSize = (12 + Math.random()*10)+'px';
+    p.style.fontSize = (22 + Math.random()*16)+'px';
     const dur = 9 + Math.random()*9;
     p.style.animationDuration = dur+'s';
     particleWrap.appendChild(p);
@@ -364,7 +364,7 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
   for(let i=0;i<10;i++) setTimeout(spawnParticle, i*280);
 
   /* ---------- confetti burst for finale ---------- */
-  const confettiEmojis = ['💗','🎀','✨','🌸','⭐','💕'];
+  const confettiEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function fireConfetti(){
     const burst = document.getElementById('burst');
     for(let i=0;i<45;i++){
@@ -381,7 +381,7 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
   }
 
   /* ---------- tap sparkle trail ---------- */
-  const sparkleEmojis = ['✨','💫','⭐','🎀'];
+  const sparkleEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function spawnTapSparkle(x,y){
     for(let i=0;i<6;i++){
       const s = document.createElement('div');
