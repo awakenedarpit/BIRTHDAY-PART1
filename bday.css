@@ -837,3 +837,77 @@ h1 em{
         transform:translateY(-8px);
     }
 }
+
+
+
+.wish-popup{
+
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.65);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.5s;
+
+    z-index:500;
+
+}
+
+.wish-popup.show{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+.popup-card{
+
+    width:min(90%,420px);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    animation:popup .5s;
+
+}
+
+.star{
+
+    font-size:60px;
+
+    animation:floatCloud 2s infinite;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.6);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
