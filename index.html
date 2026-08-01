@@ -388,10 +388,21 @@ document.querySelectorAll(".wish-cloud").forEach(cloud=>{
     setTimeout(()=>goTo(current+1), 750);
   }
 
-  stage.addEventListener('click', (e)=>{
-    spawnTapSparkle(e.clientX, e.clientY);
-    next();
-  });
+  stage.addEventListener('click', (e) => {
+
+  // Don't change slides when interacting with form elements
+  if (
+      e.target.closest('.wish-box') ||
+      e.target.closest('textarea') ||
+      e.target.closest('button') ||
+      e.target.closest('.wish-cloud')
+  ) {
+      return;
+  }
+
+  spawnTapSparkle(e.clientX, e.clientY);
+  next();
+});
 
   document.addEventListener('keydown',(e)=>{
     if(e.key==='ArrowRight' || e.key===' ') next();
