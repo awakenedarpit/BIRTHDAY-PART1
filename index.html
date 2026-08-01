@@ -618,7 +618,6 @@ sendBtn.addEventListener("click", function(e){
 
     e.stopPropagation();
 
-    // At least one wish should be selected
     if(selectedWishes.length === 0){
         alert("Please select at least one wish 🌸");
         return;
@@ -627,19 +626,15 @@ sendBtn.addEventListener("click", function(e){
     sendBtn.disabled = true;
     sendBtn.innerHTML = "✨ Sending Wishes...";
 
-    // Clouds fly away
     document.querySelectorAll(".wish-cloud.selected").forEach((cloud,index)=>{
-
         setTimeout(()=>{
             cloud.classList.add("fly");
         }, index * 250);
-
     });
 
-    // Show stars after animation
     setTimeout(()=>{
         showNightSky();
-    },2500);
+    },1800);
 
 });
 
@@ -647,60 +642,42 @@ function showNightSky(){
 
     const layer = document.getElementById("starLayer");
 
-    // Remove only old stars, not the whole layer
-    layer.querySelectorAll(".star, .shooting-star").forEach(el => el.remove());
-
+    // Clear previous stars
+    layer.innerHTML = "";
     layer.classList.add("show");
 
+    // Create fewer stars
     for(let i = 0; i < 35; i++){
 
         const star = document.createElement("div");
         star.className = "star";
-
-        const starIcons = ["⭐","✨","🌟","💫"];
-        star.innerHTML = starIcons[Math.floor(Math.random()*starIcons.length)];
+        star.innerHTML = "⭐";
 
         star.style.left = Math.random()*100 + "%";
         star.style.top = Math.random()*100 + "%";
         star.style.animationDelay = Math.random()*2 + "s";
 
-        setTimeout(() => {
-            layer.appendChild(star);
-        }, i * 35);
+        layer.appendChild(star);
     }
 
-    setTimeout(() => {
-        shootingStar();
-    }, 1500);
-
-}
-
-    // Shooting star after stars appear
-    setTimeout(() => {
-        shootingStar();
-    }, 1500);
-
+    // Launch shooting star
+    shootingStar();
 }
 
 function shootingStar(){
 
-    const layer=document.getElementById("starLayer");
+    const layer = document.getElementById("starLayer");
 
-    const star=document.createElement("div");
-
-    star.className="shooting-star";
-
-    star.innerHTML="🌠";
+    const star = document.createElement("div");
+    star.className = "shooting-star";
+    star.innerHTML = "🌠";
 
     layer.appendChild(star);
 
     setTimeout(() => {
-
-    star.remove();
-    showWishPopup();
-
-}, 2500);
-
+        star.remove();
+        showWishPopup();
+    }, 2500);
 }
 
   updateProgress();
