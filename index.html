@@ -508,7 +508,7 @@ setTimeout(()=>sparkle.remove(),700);
 
         }
 
-        popup.classList.add("show");
+        showNightSky();
 
     },800);
 
@@ -812,13 +812,13 @@ function showNightSky(){
         layer.appendChild(star);
 
     }
-
-}
-
-
 shootingStar();
-
 }
+
+
+
+
+
 
 
 function shootingStar(){
@@ -846,9 +846,29 @@ showWishPopup();
 
 function showWishPopup(){
 
-document.getElementById("wishPopup").classList.add("show");
+    const popup=document.getElementById("wishPopup");
+    const list=document.getElementById("selectedWishList");
+
+    list.innerHTML="";
+
+    if(selectedWishes.length===0){
+
+        list.innerHTML="<li>🌠 Every beautiful wish in your heart.</li>";
+
+    }else{
+
+        selectedWishes.forEach(wish=>{
+
+            list.innerHTML+=`<li>${wish}</li>`;
+
+        });
+
+    }
+
+    popup.classList.add("show");
 
 }
+
 
 
 
