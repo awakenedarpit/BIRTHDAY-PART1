@@ -194,29 +194,29 @@
 
 <div class="wish-clouds">
 
-    <div class="wish-cloud">💖 Endless Happiness</div>
+<div class="wish-cloud" style="--d:0s;">💖 Endless Happiness</div>
 
-    <div class="wish-cloud">🌸 Good Health</div>
+<div class="wish-cloud" style="--d:.3s;">🌸 Good Health</div>
 
-    <div class="wish-cloud">🎓 Academic Success</div>
+<div class="wish-cloud" style="--d:.6s;">🎓 Academic Success</div>
 
-    <div class="wish-cloud">💼 Dream Career</div>
+<div class="wish-cloud" style="--d:.9s;">💼 Dream Career</div>
 
-    <div class="wish-cloud">✈️ Travel the World</div>
+<div class="wish-cloud" style="--d:1.2s;">✈️ Travel the World</div>
 
-    <div class="wish-cloud">👨‍👩‍👧 Family Happiness</div>
+<div class="wish-cloud" style="--d:1.5s;">👨‍👩‍👧 Family Happiness</div>
 
-    <div class="wish-cloud">💕 True Love</div>
+<div class="wish-cloud" style="--d:1.8s;">💕 True Love</div>
 
-    <div class="wish-cloud">😊 A Beautiful Smile Every Day</div>
+<div class="wish-cloud" style="--d:2.1s;">😊 A Beautiful Smile Every Day</div>
 
-    <div class="wish-cloud">💰 Financial Freedom</div>
+<div class="wish-cloud" style="--d:2.4s;">💰 Financial Freedom</div>
 
-    <div class="wish-cloud">🌈 Peace of Mind</div>
+<div class="wish-cloud" style="--d:2.7s;">🌈 Peace of Mind</div>
 
-    <div class="wish-cloud">🎁 Beautiful Surprises</div>
+<div class="wish-cloud" style="--d:3s;">🎁 Beautiful Surprises</div>
 
-    <div class="wish-cloud">⭐ May All My Wishes Come True</div>
+<div class="wish-cloud" style="--d:3.3s;">⭐ May All My Wishes Come True</div>
 
 </div>
 
@@ -374,33 +374,51 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 
 <script>
 
-let selectedWishes = [];
+let selectedWishes=[];
 
 document.querySelectorAll(".wish-cloud").forEach(cloud=>{
 
-    cloud.addEventListener("click",()=>{
+cloud.addEventListener("click",(e)=>{
 
-        cloud.classList.toggle("selected");
+e.stopPropagation();
 
-        const wish = cloud.textContent.trim();
+cloud.classList.toggle("selected");
 
-        if(cloud.classList.contains("selected")){
+const wish=cloud.textContent.trim();
 
-            if(!selectedWishes.includes(wish)){
-                selectedWishes.push(wish);
-            }
+if(cloud.classList.contains("selected")){
 
-        }else{
+if(!selectedWishes.includes(wish)){
 
-            selectedWishes = selectedWishes.filter(w=>w!==wish);
+selectedWishes.push(wish);
 
-        }
+}
 
-        console.log(selectedWishes);   // Shows selected wishes
-    });
+}else{
+
+selectedWishes=selectedWishes.filter(w=>w!==wish);
+
+}
+
+createSparkle(cloud);
 
 });
 
+});
+
+function createSparkle(el){
+
+const sparkle=document.createElement("div");
+
+sparkle.className="wishSparkle";
+
+sparkle.innerHTML="✨";
+
+el.appendChild(sparkle);
+
+setTimeout(()=>sparkle.remove(),700);
+
+}
 
 
 
