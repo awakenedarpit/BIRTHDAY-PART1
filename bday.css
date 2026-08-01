@@ -673,3 +673,20 @@ h1 em{
 }
 
 
+
+.memory-cluster{
+    margin: 20px auto;
+    left: 0;
+    right: 0;
+}
+
+.reasons{
+    width: 100%;
+    max-width: 380px;
+    margin: 20px auto;
+}
+
+.reason{
+    width: 100%;
+    box-sizing: border-box;
+}
