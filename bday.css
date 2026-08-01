@@ -789,179 +789,104 @@ h1 em{
 
 
 
-/* ===== Wish Clouds ===== */
+/* ===============================
+      MAGIC WISH CLOUDS
+================================ */
 
 .wish-clouds{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:14px;
-    margin:25px auto;
-    max-width:500px;
-}
-
-.wish-cloud{
-    position:relative;
-    padding:14px 20px;
-    background:rgba(255,255,255,.18);
-    backdrop-filter:blur(12px);
-    border:2px solid rgba(255,255,255,.25);
-    border-radius:50px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:600;
-    transition:.3s;
-    animation:floatCloud 3s ease-in-out infinite;
-    user-select:none;
-}
-
-.wish-cloud:nth-child(even){
-    animation-delay:.8s;
-}
-
-.wish-cloud:hover{
-    transform:scale(1.08);
-}
-
-.wish-cloud.selected{
-    background:#ff7db7;
-    color:#fff;
-    box-shadow:0 0 20px rgba(255,105,180,.7);
-}
-
-@keyframes floatCloud{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-8px);
-    }
-}
-
-
-
-.wish-popup{
-
-position:absolute;
-
-inset:0;
 
 display:flex;
-
+flex-wrap:wrap;
 justify-content:center;
-
-align-items:center;
-
-background:rgba(0,0,0,.65);
-
-opacity:0;
-
-visibility:hidden;
-
-transition:.4s;
-
-z-index:1000;
-
-}
-
-.wish-popup.show{
-
-opacity:1;
-
-visibility:visible;
-
-}
-
-.popup-card{
-
-width:min(90%,430px);
-
-padding:28px;
-
-border-radius:30px;
-
-text-align:center;
-
-background:rgba(255,255,255,.12);
-
-backdrop-filter:blur(20px);
-
-animation:popup .5s;
-
-}
-
-#selectedWishList{
-
-list-style:none;
-
-padding:0;
-
-margin:20px 0;
-
-}
-
-#selectedWishList li{
-
-margin:8px 0;
-
-font-size:17px;
-
-}
-
-.star{
-
-font-size:55px;
-
-margin-bottom:10px;
-
-}
-
-.popup-end{
+gap:18px;
 
 margin-top:20px;
 
-line-height:1.7;
-
 }
 
-#continueBtn{
+.wish-cloud{
 
-margin-top:18px;
+padding:14px 20px;
 
-padding:12px 28px;
+border-radius:999px;
 
-border:none;
+background:rgba(255,255,255,.12);
 
-border-radius:30px;
+backdrop-filter:blur(15px);
+
+border:2px solid rgba(255,255,255,.18);
 
 cursor:pointer;
 
-font-size:17px;
+user-select:none;
 
-font-weight:bold;
+font-size:15px;
 
-}
+transition:.4s;
 
-@keyframes popup{
+animation:
 
-from{
+appear .8s forwards,
+
+floatCloud 5s ease-in-out infinite;
+
+animation-delay:var(--d),calc(var(--d) + .8s);
 
 opacity:0;
 
-transform:scale(.7);
+transform:translateY(50px);
 
 }
+
+.wish-cloud:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 18px rgba(255,180,230,.6);
+
+}
+
+.wish-cloud.selected{
+
+background:linear-gradient(135deg,#ff72b6,#ffb36b);
+
+color:white;
+
+border:none;
+
+box-shadow:0 0 30px rgba(255,105,180,.7);
+
+transform:scale(1.08);
+
+}
+
+@keyframes appear{
 
 to{
 
 opacity:1;
 
-transform:scale(1);
+transform:translateY(0);
 
 }
 
 }
 
+@keyframes floatCloud{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
 
 
 
