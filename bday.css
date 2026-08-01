@@ -785,3 +785,55 @@ h1 em{
 .wish-box button:hover{
     transform:scale(1.05);
 }
+
+
+
+
+/* ===== Wish Clouds ===== */
+
+.wish-clouds{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+    margin:25px auto;
+    max-width:500px;
+}
+
+.wish-cloud{
+    position:relative;
+    padding:14px 20px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(12px);
+    border:2px solid rgba(255,255,255,.25);
+    border-radius:50px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+    animation:floatCloud 3s ease-in-out infinite;
+    user-select:none;
+}
+
+.wish-cloud:nth-child(even){
+    animation-delay:.8s;
+}
+
+.wish-cloud:hover{
+    transform:scale(1.08);
+}
+
+.wish-cloud.selected{
+    background:#ff7db7;
+    color:#fff;
+    box-shadow:0 0 20px rgba(255,105,180,.7);
+}
+
+@keyframes floatCloud{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
