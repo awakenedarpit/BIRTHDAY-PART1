@@ -742,3 +742,32 @@ h1 em{
 .wish-box button:hover{
     transform:scale(1.05);
 }
+
+
+/* Wish Options */
+
+.wish-options{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    margin:18px 0;
+}
+
+.wish-options label{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
+    padding:10px 14px;
+    border-radius:25px;
+    cursor:pointer;
+    transition:.3s;
+    font-size:15px;
+}
+
+.wish-options label:hover{
+    transform:scale(1.05);
+}
+
+.wish-options input{
+    margin-right:6px;
+}
