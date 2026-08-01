@@ -690,3 +690,55 @@ h1 em{
     width: 100%;
     box-sizing: border-box;
 }
+
+
+
+
+/* ================= Secret Wish Box ================= */
+
+.wish-box{
+    width:min(90%,430px);
+    margin:20px auto 30px;
+    padding:20px;
+    border-radius:30px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border:2px solid rgba(255,255,255,.18);
+    text-align:center;
+}
+
+.wish-box h2{
+    margin-bottom:10px;
+}
+
+.wish-note{
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.wish-box textarea{
+    width:100%;
+    height:110px;
+    border:none;
+    outline:none;
+    resize:none;
+    border-radius:18px;
+    padding:14px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+.wish-box button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.wish-box button:hover{
+    transform:scale(1.05);
+}
