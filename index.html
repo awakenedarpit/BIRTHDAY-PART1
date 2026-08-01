@@ -242,17 +242,29 @@
 
         <div class="star">🌠</div>
 
-        <h2>All Your Wishes Have Been Sent To The Stars ✨</h2>
+        <h2>Your Wishes Have Been Sent To The Stars ✨</h2>
 
         <p>
-            Every wish you've made today has begun its journey across the sky.
-            <br><br>
-            🌸 May happiness find you.
-            <br>
-            💖 May your dreams come true.
-            <br>
-            ⭐ May every wish be fulfilled.
+            The universe has received these beautiful wishes...
         </p>
+
+        <ul id="selectedWishList"></ul>
+
+        <p class="popup-end">
+
+            🌸 May every one of these wishes come true.
+
+            <br><br>
+
+            Happy Birthday once again! 💖
+
+        </p>
+
+        <button id="continueBtn">
+
+            Continue 🎂
+
+        </button>
 
     </div>
 
@@ -429,17 +441,45 @@ document.querySelectorAll(".wish-cloud").forEach(cloud=>{
   }
 
   function blowCandles(){
+
     candlesBlown = true;
+
     const flames = document.querySelectorAll('[data-flame]');
     const puffs = document.querySelectorAll('[data-puff]');
+
     flames.forEach((f,i)=>{
-      setTimeout(()=>{
-        f.classList.add('out');
-        puffs[i].classList.add('go');
-      }, i*150);
+        setTimeout(()=>{
+            f.classList.add('out');
+            puffs[i].classList.add('go');
+        },i*150);
     });
-    setTimeout(()=>goTo(current+1), 750);
-  }
+
+    setTimeout(()=>{
+
+        const popup=document.getElementById("wishPopup");
+        const list=document.getElementById("selectedWishList");
+
+        list.innerHTML="";
+
+        if(selectedWishes.length===0){
+
+            list.innerHTML="<li>🌠 Every beautiful wish in your heart.</li>";
+
+        }else{
+
+            selectedWishes.forEach(wish=>{
+
+                list.innerHTML+=`<li>${wish}</li>`;
+
+            });
+
+        }
+
+        popup.classList.add("show");
+
+    },800);
+
+}
 
   stage.addEventListener('click', (e) => {
 
