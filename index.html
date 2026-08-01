@@ -319,6 +319,34 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 
 <script>
 
+let selectedWishes = [];
+
+document.querySelectorAll(".wish-cloud").forEach(cloud=>{
+
+    cloud.addEventListener("click",()=>{
+
+        cloud.classList.toggle("selected");
+
+        const wish = cloud.textContent.trim();
+
+        if(cloud.classList.contains("selected")){
+
+            if(!selectedWishes.includes(wish)){
+                selectedWishes.push(wish);
+            }
+
+        }else{
+
+            selectedWishes = selectedWishes.filter(w=>w!==wish);
+
+        }
+
+        console.log(selectedWishes);   // Shows selected wishes
+    });
+
+});
+
+
 document.querySelectorAll(".wish-cloud").forEach(cloud=>{
     cloud.addEventListener("click",()=>{
         cloud.classList.toggle("selected");
