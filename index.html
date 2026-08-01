@@ -791,27 +791,30 @@ showNightSky();
 
 function showNightSky(){
 
-const layer=document.getElementById("starLayer");
+    const layer = document.getElementById("starLayer");
 
-layer.classList.add("show");
+    layer.classList.add("show");
 
-for(let i=0;i<80;i++){
+    for(let i=0;i<80;i++){
 
-const star=document.createElement("div");
+        const star=document.createElement("div");
 
-star.className="star";
+        star.className="star";
 
-star.innerHTML="⭐";
+        star.innerHTML="⭐";
 
-star.style.left=Math.random()*100+"%";
+        star.style.left = Math.random()*100+"%";
 
-star.style.top=Math.random()*100+"%";
+        star.style.top = Math.random()*100+"%";
 
-star.style.animationDelay=Math.random()*2+"s";
+        star.style.animationDelay = Math.random()*2+"s";
 
-layer.appendChild(star);
+        layer.appendChild(star);
+
+    }
 
 }
+
 
 shootingStar();
 
