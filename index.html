@@ -232,9 +232,9 @@
         placeholder="Write your secret wish here... ✨">
     </textarea>
 
-    <button>
-        💌 Send My Wishes
-    </button>
+    <button id="sendWishesBtn">
+    💌 Send My Wishes
+</button>
 
 </div>
 
@@ -251,7 +251,7 @@
         </div>
       </div>
       <div class="wish-cta">Make a wish 🌙</div>
-      <div class="hint">✨ tap anywhere to blow them out</div>
+      <div class="hint">✨ ✨ Your wishes are travelling to the stars...</div>
 
 
 <div class="wish-popup" id="wishPopup">
@@ -288,6 +288,7 @@
 
 </div>
 
+<div class="star-layer" id="starLayer"></div>
 
     </section>
 
@@ -611,6 +612,87 @@ setTimeout(()=>sparkle.remove(),700);
     }
   }
 
+const sendBtn = document.getElementById("sendWishesBtn");
+
+sendBtn.addEventListener("click", function(e){
+
+    e.stopPropagation();
+
+    // At least one wish should be selected
+    if(selectedWishes.length === 0){
+        alert("Please select at least one wish 🌸");
+        return;
+    }
+
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = "✨ Sending Wishes...";
+
+    // Clouds fly away
+    document.querySelectorAll(".wish-cloud.selected").forEach((cloud,index)=>{
+
+        setTimeout(()=>{
+            cloud.classList.add("fly");
+        }, index * 250);
+
+    });
+
+    // Show stars after animation
+    setTimeout(()=>{
+        showNightSky();
+    },2500);
+
+});
+
+function showNightSky(){
+
+    const layer = document.getElementById("starLayer");
+
+    layer.classList.add("show");
+
+    for(let i=0;i<80;i++){
+
+        const star=document.createElement("div");
+
+        star.className="star";
+
+        star.innerHTML="⭐";
+
+        star.style.left=Math.random()*100+"%";
+
+        star.style.top=Math.random()*100+"%";
+
+        star.style.animationDelay=Math.random()*2+"s";
+
+        layer.appendChild(star);
+
+    }
+
+    shootingStar();
+
+}
+
+function shootingStar(){
+
+    const layer=document.getElementById("starLayer");
+
+    const star=document.createElement("div");
+
+    star.className="shooting-star";
+
+    star.innerHTML="🌠";
+
+    layer.appendChild(star);
+
+    setTimeout(()=>{
+
+        star.remove();
+
+        blowCandles();
+
+    },2500);
+
+}
+
   updateProgress();
 
 
@@ -633,7 +715,10 @@ document.getElementById("continueBtn").addEventListener("click",()=>{
 
     document.getElementById("wishPopup").classList.remove("show");
 
-    goTo(current+1);
+    document.getElementById("starLayer").innerHTML="";
+document.getElementById("starLayer").classList.remove("show");
+
+goTo(current+1);
 
 });
 
@@ -671,6 +756,96 @@ setInterval(()=>{
     },400);
 
 },3500);
+
+
+
+
+
+const sendBtn=document.getElementById("sendWishesBtn");
+
+sendBtn.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+sendBtn.innerHTML="✨ Sending...";
+
+document.querySelectorAll(".wish-cloud.selected").forEach((cloud,index)=>{
+
+setTimeout(()=>{
+
+cloud.classList.add("fly");
+
+},index*250);
+
+});
+
+setTimeout(()=>{
+
+showNightSky();
+
+},1800);
+
+});
+
+
+
+function showNightSky(){
+
+const layer=document.getElementById("starLayer");
+
+layer.classList.add("show");
+
+for(let i=0;i<80;i++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.innerHTML="⭐";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*2+"s";
+
+layer.appendChild(star);
+
+}
+
+shootingStar();
+
+}
+
+
+function shootingStar(){
+
+const layer=document.getElementById("starLayer");
+
+const star=document.createElement("div");
+
+star.className="shooting-star";
+
+star.innerHTML="🌠";
+
+layer.appendChild(star);
+
+setTimeout(()=>{
+
+star.remove();
+
+showWishPopup();
+
+},2500);
+
+}
+
+
+function showWishPopup(){
+
+document.getElementById("wishPopup").classList.add("show");
+
+}
 
 
 
