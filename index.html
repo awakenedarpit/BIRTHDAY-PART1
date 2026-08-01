@@ -318,8 +318,16 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 </script>
 
 <script>
+
+document.querySelectorAll(".wish-cloud").forEach(cloud=>{
+    cloud.addEventListener("click",()=>{
+        cloud.classList.toggle("selected");
+    });
+});
+
   const bgMusic = document.getElementById("bgMusic");
   const slides = document.querySelectorAll('.slide');
+
   const total = slides.length;
   const progressEl = document.getElementById('progress');
   const stage = document.getElementById('stage');
