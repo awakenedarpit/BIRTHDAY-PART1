@@ -596,6 +596,16 @@ function playMusic() {
 document.addEventListener("click", playMusic, { once: true });
 document.addEventListener("touchstart", playMusic, { once: true });
 
+
+document.getElementById("continueBtn").addEventListener("click",()=>{
+
+    document.getElementById("wishPopup").classList.remove("show");
+
+    goTo(current+1);
+
+});
+
+
 </script>
 
 
