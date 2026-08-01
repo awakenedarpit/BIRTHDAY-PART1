@@ -647,30 +647,33 @@ function showNightSky(){
 
     const layer = document.getElementById("starLayer");
 
+    // Remove only old stars, not the whole layer
+    layer.querySelectorAll(".star, .shooting-star").forEach(el => el.remove());
+
     layer.classList.add("show");
 
-    // Remove old stars
-    layer.innerHTML = "";
-
-    // Create fewer stars gradually
     for(let i = 0; i < 35; i++){
 
         const star = document.createElement("div");
-
         star.className = "star";
 
         const starIcons = ["⭐","✨","🌟","💫"];
-star.innerHTML = starIcons[Math.floor(Math.random() * starIcons.length)];
+        star.innerHTML = starIcons[Math.floor(Math.random()*starIcons.length)];
 
-        star.style.left = Math.random() * 100 + "%";
-        star.style.top = Math.random() * 100 + "%";
-        star.style.animationDelay = Math.random() * 2 + "s";
+        star.style.left = Math.random()*100 + "%";
+        star.style.top = Math.random()*100 + "%";
+        star.style.animationDelay = Math.random()*2 + "s";
 
         setTimeout(() => {
             layer.appendChild(star);
         }, i * 35);
-
     }
+
+    setTimeout(() => {
+        shootingStar();
+    }, 1500);
+
+}
 
     // Shooting star after stars appear
     setTimeout(() => {
@@ -691,13 +694,12 @@ function shootingStar(){
 
     layer.appendChild(star);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-        star.remove();
+    star.remove();
+    showWishPopup();
 
-        blowCandles();
-
-    },2500);
+}, 2500);
 
 }
 
