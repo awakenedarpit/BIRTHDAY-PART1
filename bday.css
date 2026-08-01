@@ -961,3 +961,111 @@ transform:scale(1);
 }
 
 }
+
+
+
+
+
+/* ===========================
+   THE WISH CEREMONY
+=========================== */
+
+.wish-intro{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+}
+
+.intro-cloud{
+
+    max-width:420px;
+    width:90%;
+
+    padding:22px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    border:2px solid rgba(255,255,255,.20);
+
+    text-align:center;
+
+    position:relative;
+
+    box-shadow:0 0 25px rgba(255,192,203,.25);
+
+    animation:cloudFloat 4s ease-in-out infinite;
+
+}
+
+.intro-cloud::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:32px;
+    height:32px;
+
+    border-radius:50%;
+
+    background:inherit;
+
+    left:35px;
+    bottom:-18px;
+
+}
+
+.intro-cloud::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:inherit;
+
+    left:68px;
+    bottom:-36px;
+
+}
+
+#wishTitle{
+
+    margin:0;
+
+    font-size:30px;
+
+}
+
+#wishSubtitle{
+
+    margin-top:12px;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    opacity:.95;
+
+}
+
+@keyframes cloudFloat{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
