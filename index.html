@@ -804,6 +804,150 @@ setInterval(()=>{
 
 
 
+/* ==========================================
+      PREMIUM PASSCODE LOCK
+========================================== */
+
+// 🔐 Change your passcode here
+const PASSCODE = "1308";
+
+// Stores the entered digits
+let enteredCode = "";
+
+// Elements
+const lockScreen = document.getElementById("lockScreen");
+const lockContainer = document.querySelector(".lock-container");
+const dots = document.querySelectorAll("#passcodeDots span");
+const numberButtons = document.querySelectorAll(".num");
+const deleteBtn = document.getElementById("deleteBtn");
+const okBtn = document.getElementById("okBtn");
+const errorText = document.getElementById("errorText");
+
+// Update passcode dots
+function updateDots() {
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index < enteredCode.length);
+    });
+}
+
+// Check passcode
+function checkPasscode() {
+
+    if (enteredCode === PASSCODE) {
+
+        errorText.textContent = "Unlocked ❤️";
+
+        lockContainer.classList.add("unlock");
+
+        // Hide lock screen after animation
+        setTimeout(() => {
+
+            lockScreen.style.display = "none";
+
+            // ▶️ Start your slideshow here
+            if (typeof startSlides === "function") {
+                startSlides();
+            }
+
+            // 🎵 Play music here
+            if (typeof bgMusic !== "undefined") {
+                bgMusic.play().catch(() => {});
+            }
+
+            // OR if your audio element has id="bgMusic"
+            const music = document.getElementById("bgMusic");
+            if (music) {
+                music.play().catch(() => {});
+            }
+
+        }, 700);
+
+    } else {
+
+        errorText.textContent = "Wrong Passcode";
+
+        lockContainer.classList.add("shake");
+
+        setTimeout(() => {
+            lockContainer.classList.remove("shake");
+        }, 450);
+
+        enteredCode = "";
+        updateDots();
+    }
+
+}
+
+// Handle number press
+function pressNumber(number) {
+
+    if (enteredCode.length >= PASSCODE.length)
+        return;
+
+    enteredCode += number;
+
+    updateDots();
+
+    // Automatically check after full code
+    if (enteredCode.length === PASSCODE.length) {
+
+        setTimeout(checkPasscode, 200);
+
+    }
+
+}
+
+// Number buttons
+numberButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        pressNumber(button.dataset.value);
+
+    });
+
+});
+
+// Delete button
+deleteBtn.addEventListener("click", () => {
+
+    enteredCode = enteredCode.slice(0, -1);
+
+    updateDots();
+
+});
+
+// OK button
+okBtn.addEventListener("click", checkPasscode);
+
+// Keyboard support
+document.addEventListener("keydown", e => {
+
+    if (e.key >= "0" && e.key <= "9") {
+
+        pressNumber(e.key);
+
+    }
+
+    if (e.key === "Backspace") {
+
+        enteredCode = enteredCode.slice(0, -1);
+
+        updateDots();
+
+    }
+
+    if (e.key === "Enter") {
+
+        checkPasscode();
+
+    }
+
+});
+
+// Prevent slideshow from starting before unlock
+// Remove any automatic startSlides() call elsewhere in your code.
+
 
 
 
