@@ -1429,6 +1429,26 @@ p.remove();
 
 
 
+const giftBox = document.getElementById("giftBox");
+const lettersGrid = document.getElementById("lettersGrid");
+
+giftBox.addEventListener("click", () => {
+
+    giftBox.classList.add("opened");
+
+    setTimeout(() => {
+
+        giftBox.style.display = "none";
+
+        lettersGrid.classList.remove("hidden-grid");
+
+        lettersGrid.classList.add("show-grid");
+
+    },700);
+
+});
+
+
 
 
 </script>
