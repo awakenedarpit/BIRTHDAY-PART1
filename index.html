@@ -1358,7 +1358,11 @@ function updateLetters(){
 
     if(openedLetters.size === 6){
 
-        continueBtn.classList.add("show");
+        continueBtn.addEventListener("click",()=>{
+
+    goTo(current+1);
+
+});
 
     }
 
