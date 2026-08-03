@@ -707,20 +707,22 @@ setTimeout(()=>sparkle.remove(),700);
 
 }
 
-  stage.addEventListener('click', (e) => {
+  stage.addEventListener("click", (e) => {
 
-  // Don't change slides when interacting with form elements
-  if (
-      e.target.closest('.wish-box') ||
-      e.target.closest('textarea') ||
-      e.target.closest('button') ||
-      e.target.closest('.wish-cloud')
-  ) {
-      return;
-  }
+    if (
+        e.target.closest(".wish-box") ||
+        e.target.closest("textarea") ||
+        e.target.closest("button") ||
+        e.target.closest(".wish-cloud") ||
+        e.target.closest("#giftBox") ||
+        e.target.closest("#lettersGrid") ||
+        e.target.closest("#letterViewer")
+    ) {
+        return;
+    }
 
-  spawnTapSparkle(e.clientX, e.clientY);
-  next();
+    spawnTapSparkle(e.clientX, e.clientY);
+    next();
 });
 
   document.addEventListener('keydown',(e)=>{
