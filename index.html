@@ -1238,6 +1238,188 @@ Never forget how special you are.
 
 This website was made with lots of care just
 
+Happy Birthday once again.
+
+I hope this day becomes unforgettable.
+
+❤️`
+  }
+};
+
+const openedLetters = new Set();
+
+const viewer = document.getElementById("letterViewer");
+const title = document.getElementById("letterTitle");
+const content = document.getElementById("letterContent");
+const continueBtn = document.getElementById("continueLetters");
+
+document.querySelectorAll(".letter-envelope").forEach(letter => {
+
+    letter.addEventListener("click", () => {
+
+        const id = Number(letter.dataset.letter);
+
+        // Last letter locked
+        if(id === 6 && openedLetters.size < 5){
+
+            alert("❤️ Read the other five letters first.");
+
+            return;
+
+        }
+
+        letter.classList.add("opening");
+
+setTimeout(()=>{
+
+letter.classList.remove("opening");
+
+title.textContent=letters[id].title;
+
+content.innerHTML="";
+
+viewer.classList.add("show");
+
+document
+.querySelector(".letter-paper")
+.classList.add("open");
+
+typeLetter(
+letters[id].text,
+content
+);
+
+launchPetals();
+
+},550);
+
+        openedLetters.add(id);
+
+        updateLetters();
+
+    });
+
+});
+
+document.getElementById("closeLetter").addEventListener("click", () => {
+
+    const paper=document.querySelector(".letter-paper");
+
+paper.classList.remove("open");
+
+paper.classList.add("close");
+
+setTimeout(()=>{
+
+viewer.classList.remove("show");
+
+paper.classList.remove("close");
+
+},300);
+
+});
+
+function updateLetters(){
+
+    for(let i = 1; i <= 6; i++){
+
+        const heart = document.getElementById("heart" + i);
+
+        if(i === 6){
+
+            if(openedLetters.size >= 5){
+
+                heart.textContent = "🤍";
+
+                document.querySelector('[data-letter="6"]').classList.remove("locked");
+
+            }
+
+            if(openedLetters.has(6)){
+
+                heart.textContent = "❤️";
+
+            }
+
+        }else{
+
+            heart.textContent = openedLetters.has(i) ? "❤️" : "🤍";
+
+        }
+
+    }
+
+    if(openedLetters.size === 6){
+
+        continueBtn.classList.add("show");
+
+    }
+
+}
+
+
+
+// ====================================
+// Typewriter
+// ====================================
+
+function typeLetter(text,target){
+
+let i=0;
+
+target.innerHTML="";
+
+const speed=18;
+
+const timer=setInterval(()=>{
+
+target.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(timer);
+
+}
+
+},speed);
+
+}
+
+// ====================================
+// Petals
+// ====================================
+
+function launchPetals(){
+
+const container=document.getElementById("petals");
+
+for(let i=0;i<30;i++){
+
+const p=document.createElement("div");
+
+p.className="petal";
+
+p.innerHTML=Math.random()>.5?"🌸":"🌺";
+
+p.style.left=Math.random()*100+"vw";
+
+p.style.animationDuration=
+(5+Math.random()*4)+"s";
+
+container.appendChild(p);
+
+setTimeout(()=>{
+
+p.remove();
+
+},9000);
+
+}
+
+}
+
 
 
 
