@@ -2263,3 +2263,25 @@ box-shadow:0 0 30px rgba(255,120,160,.7);
 
 }
 
+
+
+.letters-box{
+    position: relative;
+    width: 100%;
+    min-height: 420px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-box{
+    position: absolute;
+    z-index: 20;
+}
+
+.letters-grid{
+    position: absolute;
+    z-index: 10;
+}
+
