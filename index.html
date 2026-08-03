@@ -1591,6 +1591,62 @@ function unlockFinalLetter(){
 
 
 
+
+/* ==========================================
+   CELEBRATION SLIDE
+========================================== */
+
+const celebrationStage = document.getElementById("celebrationStage");
+const celebrationContinue = document.getElementById("celeContinueBtn");
+
+// Change this to your FINAL slide ID
+const finalStage = document.getElementById("finalStage");
+
+// Hide celebration initially
+celebrationStage.style.display = "none";
+
+/* Show Celebration */
+function showCelebration(){
+
+    // Hide all stages
+    document.querySelectorAll(".stage").forEach(stage=>{
+        stage.style.display="none";
+    });
+
+    // Show celebration
+    celebrationStage.style.display="flex";
+
+    // Scroll to top
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    // Automatically continue after 8 seconds
+    setTimeout(()=>{
+        goToFinalStage();
+    },8000);
+
+}
+
+/* Continue Button */
+celebrationContinue.addEventListener("click",goToFinalStage);
+
+/* Open Final Slide */
+function goToFinalStage(){
+
+    celebrationStage.style.display="none";
+
+    finalStage.style.display="flex";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
 </script>
 
 
