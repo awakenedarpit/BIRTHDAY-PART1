@@ -835,8 +835,13 @@ function checkPasscode() {
 
     if (enteredCode === PASSCODE) {
 
-        errorText.textContent = "Unlocked ❤️";
+        errorText.textContent = "";
 
+lockContainer.classList.add("success");
+
+if (navigator.vibrate) {
+    navigator.vibrate(80);
+}
         lockContainer.classList.add("unlock");
 
         // Hide lock screen after animation
@@ -864,8 +869,23 @@ function checkPasscode() {
 
     } else {
 
-        errorText.textContent = "Wrong Passcode";
+        errorText.textContent = "";
 
+if (navigator.vibrate) {
+    navigator.vibrate([80,60,80]);
+}
+
+dots.forEach(dot=>{
+    dot.style.background="#ff4d6d";
+    dot.style.borderColor="#ff4d6d";
+});
+
+setTimeout(()=>{
+    dots.forEach(dot=>{
+        dot.style.background="";
+        dot.style.borderColor="";
+    });
+},300);
         lockContainer.classList.add("shake");
 
         setTimeout(() => {
