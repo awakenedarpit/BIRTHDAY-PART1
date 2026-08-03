@@ -1456,23 +1456,29 @@ p.remove();
 
 
 
-const giftBox = document.getElementById("giftBox");
-const lettersGrid = document.getElementById("lettersGrid");
+document.addEventListener("DOMContentLoaded", () => {
 
-giftBox.addEventListener("click", (e) => {
-    e.stopPropagation();
+    const giftBox = document.getElementById("giftBox");
+    const lettersGrid = document.getElementById("lettersGrid");
 
-    alert("Gift clicked!");
+    if(!giftBox || !lettersGrid) return;
 
-    giftBox.classList.add("open-box");
+    giftBox.addEventListener("click", () => {
 
-    setTimeout(() => {
-        giftBox.style.display = "none";
-        lettersGrid.classList.remove("hidden-grid");
-        lettersGrid.classList.add("show-grid");
-    }, 700);
+        giftBox.classList.add("opened");
+
+        setTimeout(() => {
+
+            giftBox.style.display = "none";
+
+            lettersGrid.classList.remove("hidden-grid");
+            lettersGrid.classList.add("show-grid");
+
+        },700);
+
+    });
+
 });
-
 
 </script>
 
