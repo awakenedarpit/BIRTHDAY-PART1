@@ -342,3 +342,2153 @@ h1 em{
   .reason{font-size:13.5px;padding:13px 15px;}
   .balloon{width:38px;height:48px;}
 }
+
+
+
+
+/* ===============================
+   PREMIUM HANGING PHOTO WALL
+================================*/
+
+.photo-wall{
+  position:absolute;
+  inset:0;
+  max-width:640px;
+  margin:0 auto;
+  pointer-events:none;
+  z-index:1;
+}
+
+/* Ropes (SVG wavy string) */
+.rope{
+  position:absolute;
+  left:0;
+  width:100%;
+  height:60px;
+  overflow:visible;
+  z-index:1;
+}
+.rope-top{ top:6%; }
+.rope-bottom{ top:44%; }
+.rope path{
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
+}
+.rope::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle, #ffe89c 3px, transparent 4px) 0 18px/34px 34px repeat-x;
+  filter:drop-shadow(0 0 4px #ffcf6b);
+  opacity:.9;
+}
+
+/* Scattered decor */
+.decor{
+  position:absolute;
+  font-size:clamp(14px,2vw,22px);
+  opacity:.85;
+  pointer-events:none;
+  z-index:2;
+  filter:drop-shadow(0 0 6px rgba(255,200,220,.4));
+}
+
+/* Photo */
+.photo{
+  position:absolute;
+  width:clamp(150px, 20vw, 220px);
+  background:#faf7f2;
+  padding:10px 10px 16px;
+  border-radius:6px;
+  box-shadow:0 18px 30px rgba(0,0,0,.3);
+  animation:swing 4.5s ease-in-out infinite;
+  transform-origin:top center;
+  z-index:3;
+}
+
+.photo img{
+  width:100%;
+  height:clamp(160px, 22vw, 240px);
+  object-fit:cover;
+  border-radius:3px;
+  display:block;
+}
+
+.photo .caption{
+  font-family:var(--serif);
+  font-size:clamp(12px,1.3vw,14px);
+  color:#4a3b2f;
+  text-align:center;
+  margin-top:8px;
+  line-height:1.4;
+}
+
+/* Thread */
+.string{
+  position:absolute;
+  left:50%;
+  top:-30px;
+  width:2px;
+  height:30px;
+  background:#f7f7f7;
+  transform:translateX(-50%);
+  z-index:3;
+}
+
+/* Wooden Clip */
+.string::before{
+  content:"";
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:20px;
+  height:26px;
+  border-radius:3px;
+  background:linear-gradient(#e0ab72,#a06d3f);
+  box-shadow:0 2px 4px rgba(0,0,0,.25);
+}
+
+/* Positions — top row on rope-top, bottom row on rope-bottom */
+.p1{ top:13%; left:0%;  transform:rotate(-6deg); }
+.p2{ top:30%; left:50%; transform:translateX(-50%) rotate(2deg); }
+.p3{ top:13%; right:0%; transform:rotate(6deg); }
+
+.p4{ top:70%; left:0%;  transform:rotate(-6deg); }
+.p5{ top:70%; right:0%; transform:rotate(6deg); }
+
+@keyframes swing{
+  0%,100%{ transform:rotate(-3deg); }
+  50%{ transform:rotate(3deg); }
+}
+.p2{ animation-name:swingCenter; }
+@keyframes swingCenter{
+  0%,100%{ transform:translateX(-50%) rotate(-2deg); }
+  50%{ transform:translateX(-50%) rotate(2deg); }
+}
+
+.orbit{
+  margin-top:clamp(140px, 24vh, 210px);
+  margin-bottom:18px;
+  position:relative;
+  z-index:3;
+}
+
+.slide[data-index="1"] .quote{
+  margin-top:10px;
+  position:relative;
+  z-index:4;              /* sits above photo-wall's z-index:1 so it's never visually hidden */
+}
+
+@media (max-width:420px){
+  .photo{ width:clamp(105px, 30vw, 140px); padding:7px 7px 12px; }
+  .photo img{ height:clamp(120px, 34vw, 160px); }
+  .photo .caption{ font-size:10.5px; }
+  .decor{ font-size:14px; }
+}
+@media (max-width:420px){
+  .p4{ left:0%; }
+  .p5{ right:0%; }
+}
+
+
+
+
+/* ===============================
+   SCATTERED MEMORY CLUSTER (Slide 3)
+================================*/
+.memory-cluster{
+  position:relative;
+  width:100%;
+  max-width:420px;
+  height:150px;
+  margin:6px auto 4px;
+  pointer-events:none;
+}
+
+.mem-photo{
+  position:absolute;
+  width:clamp(84px, 15vw, 108px);
+  background:#faf7f2;
+  padding:6px 6px 8px;
+  border-radius:4px;
+  box-shadow:0 10px 20px rgba(0,0,0,.28);
+  animation:memFloat 5s ease-in-out infinite;
+}
+.mem-photo img{
+  width:100%;
+  height:clamp(90px, 16vw, 116px);
+  object-fit:cover;
+  border-radius:2px;
+  display:block;
+}
+
+/* Washi tape strip instead of a clip */
+.mem-photo::before{
+  content:"";
+  position:absolute;
+  top:-10px;
+  left:50%;
+  width:44px;
+  height:20px;
+  background:repeating-linear-gradient(45deg, #ffb8cf, #ffb8cf 4px, #ff9fc0 4px, #ff9fc0 8px);
+  opacity:.85;
+  transform:translateX(-50%) rotate(-4deg);
+  box-shadow:0 2px 4px rgba(0,0,0,.15);
+}
+
+@keyframes memFloat{
+  0%,100%{ transform:translateY(0) rotate(var(--r)); }
+  50%{ transform:translateY(-5px) rotate(var(--r)); }
+}
+
+.m1{ top:0;   left:2%;  --r:-9deg;  transform:rotate(-9deg); z-index:2; }
+.m2{ top:14px; left:38%; --r:5deg;  transform:rotate(5deg);  z-index:3; }
+.m3{ top:4px;  right:3%; --r:8deg;  transform:rotate(8deg);  z-index:1; }
+
+@media (max-width:420px){
+  .memory-cluster{ height:130px; }
+  .mem-photo{ width:78px; }
+  .mem-photo img{ height:84px; }
+}
+
+
+.reasons{
+  position:relative;
+  z-index:4;
+  margin-top:20px; /* was 26px — cluster already adds its own spacing above */
+}
+
+.memory-cluster{
+  position:relative;
+  z-index:2;
+}
+
+
+@media (max-width:420px){
+  .memory-cluster{ height:120px; margin-bottom:10px; }
+  .mem-photo{ width:74px; }
+  .mem-photo img{ height:78px; }
+  .mem-photo{ animation-duration:6s; } /* slower float = smaller effective travel feel */
+}
+
+
+
+.slide[data-index="2"]{
+  position:center;
+}
+
+
+
+.slide[data-index="2"] .decor{
+  animation:tinyFloat 3s ease-in-out infinite;
+}
+
+
+
+
+
+.decor.big{
+  font-size:clamp(24px, 4vw, 38px);
+}
+
+
+
+.decor-float{
+  position:absolute;
+  font-size:clamp(28px, 5vw, 44px);
+  opacity:.8;
+  pointer-events:none;
+  z-index:2;
+  filter:drop-shadow(0 0 8px rgba(255,200,220,.35));
+  animation:tinyFloat 3.5s ease-in-out infinite;
+}
+
+
+
+.slide[data-index="0"]{
+  position:relative;
+}
+
+
+
+.hero-row{
+  display:flex;
+  align-items: right;
+  gap:40px;
+  max-width:900px;
+  width:100%;
+}
+
+.hero-text{
+  flex:1;
+  text-align:left;
+}
+
+.hero-photo{
+  flex-shrink:0;
+  width:clamp(220px, 34vw, 480px);
+  align-self:stretch;
+}
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+  min-height:620px;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 18px 34px rgba(0,0,0,.35);
+}
+
+/* on narrow phones, stack instead of side-by-side */
+@media (max-width:640px){
+  .hero-row{
+  display:flex;
+  align-items:stretch;   /* was center — now matches heights instead of vertically centering a small photo */
+  gap:28px;
+  max-width:900px;       /* was 760px */
+  width:100%;
+}
+  .hero-text{
+    text-align:center;
+  }
+  .hero-photo{
+    width:clamp(150px, 55vw, 480px);
+    order:-1; /* photo above text on mobile — flip if you'd rather it stay below */
+  }
+}
+
+
+.slide[data-index="2"]{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+.memory-cluster{
+    margin: 20px auto;
+    left: 0;
+    right: 0;
+}
+
+.reasons{
+    width: 100%;
+    max-width: 380px;
+    margin: 20px auto;
+}
+
+.reason{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+/* ================= WISH BOX ================= */
+
+.wish-box{
+    width:min(92%,460px);
+    margin:15px auto 30px;
+    padding:22px;
+    border-radius:28px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border:2px solid rgba(255,255,255,.18);
+    text-align:center;
+}
+
+.wish-note{
+    margin:12px 0 18px;
+    line-height:1.6;
+}
+
+.wish-options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
+}
+
+.wish-options label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:10px;
+    border-radius:18px;
+    background:rgba(255,255,255,.10);
+    cursor:pointer;
+    transition:.3s;
+    font-size:14px;
+}
+
+.wish-options label:hover{
+    transform:scale(1.03);
+}
+
+.wish-options input{
+    accent-color:#ff5ea8;
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    margin:22px 0;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:rgba(255,255,255,.3);
+}
+
+.divider span{
+    margin:0 12px;
+    font-weight:bold;
+    opacity:.9;
+}
+
+.wish-box textarea{
+    width:100%;
+    height:110px;
+    margin-top:12px;
+    padding:12px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    resize:none;
+    box-sizing:border-box;
+    font-size:15px;
+}
+
+.wish-box button{
+    margin-top:18px;
+    padding:12px 28px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.wish-box button:hover{
+    transform:scale(1.05);
+}
+
+
+
+
+/* ===============================
+      MAGIC WISH CLOUDS
+================================ */
+
+.wish-clouds{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:18px;
+
+margin-top:20px;
+
+}
+
+.wish-cloud{
+
+padding:14px 20px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(15px);
+
+border:2px solid rgba(255,255,255,.18);
+
+cursor:pointer;
+
+user-select:none;
+
+font-size:15px;
+
+transition:.4s;
+
+animation:
+
+appear .8s forwards,
+
+floatCloud 5s ease-in-out infinite;
+
+animation-delay:var(--d),calc(var(--d) + .8s);
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+.wish-cloud:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 18px rgba(255,180,230,.6);
+
+}
+
+.wish-cloud.selected{
+
+background:linear-gradient(135deg,#ff72b6,#ffb36b);
+
+color:white;
+
+border:none;
+
+box-shadow:0 0 30px rgba(255,105,180,.7);
+
+transform:scale(1.08);
+
+}
+
+@keyframes appear{
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes floatCloud{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+
+
+
+/* ===========================
+   THE WISH CEREMONY
+=========================== */
+
+.wish-intro{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+}
+
+.intro-cloud{
+
+    max-width:420px;
+    width:90%;
+
+    padding:22px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    border:2px solid rgba(255,255,255,.20);
+
+    text-align:center;
+
+    position:relative;
+
+    box-shadow:0 0 25px rgba(255,192,203,.25);
+
+    animation:cloudFloat 4s ease-in-out infinite;
+
+}
+
+.intro-cloud::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:32px;
+    height:32px;
+
+    border-radius:50%;
+
+    background:inherit;
+
+    left:35px;
+    bottom:-18px;
+
+}
+
+.intro-cloud::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:inherit;
+
+    left:68px;
+    bottom:-36px;
+
+}
+
+#wishTitle{
+
+    margin:0;
+
+    font-size:30px;
+
+}
+
+#wishSubtitle{
+
+    margin-top:12px;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    opacity:.95;
+
+}
+
+@keyframes cloudFloat{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+
+
+
+
+/* ===============================
+        FLY TO STARS
+================================ */
+
+.wish-cloud.fly{
+
+animation:flyToStars 2.2s forwards ease-in;
+
+}
+
+@keyframes flyToStars{
+
+0%{
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+30%{
+
+transform:translateY(-80px) scale(1.05);
+
+}
+
+60%{
+
+transform:translateY(-220px) scale(.9);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translateY(-600px) scale(.4);
+
+}
+
+}
+
+/* Night Sky */
+
+.star-layer{
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+opacity:0;
+
+transition:1.5s;
+
+z-index:250;
+
+}
+
+.star-layer.show{
+
+opacity:1;
+
+}
+
+.star{
+
+position:absolute;
+
+font-size:16px;
+
+animation:twinkle 2s infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+from{
+
+opacity:.3;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1.3);
+
+}
+
+}
+
+
+
+
+
+.shooting-star{
+
+position:absolute;
+
+font-size:28px;
+
+left:-10%;
+
+top:20%;
+
+animation:shoot 2.5s linear forwards;
+
+}
+
+@keyframes shoot{
+
+0%{
+
+transform:translate(0,0);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translate(130vw,55vh);
+
+opacity:0;
+
+}
+
+}
+
+
+.wish-popup{
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+.wish-popup.show{
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+
+/* ===================================================
+            PREMIUM PASSCODE SCREEN
+=================================================== */
+
+#lockScreen{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:transparent;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+
+
+.lock-card{
+    width:360px;
+    max-width:92%;
+    padding:30px;
+    border-radius:32px;
+
+    background:var(--card);
+    border:1.5px solid var(--card-border);
+    box-shadow:0 15px 40px var(--card-shadow);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    color:var(--ink);
+
+    text-align:center;
+
+    transition:.4s ease;
+}
+
+.gift{
+
+    font-size:72px;
+
+    margin-bottom:18px;
+
+    animation:giftFloat 3s ease-in-out infinite;
+}
+
+@keyframes giftFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+.top-title{
+
+    letter-spacing:5px;
+
+    color:var(--pink);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.name{
+
+    color:var(--ink);
+
+    font-size:54px;
+
+    font-family:var(--serif);
+
+    margin-bottom:10px;
+}
+
+.subtitle{
+
+    color:var(--ink-dim);
+
+    font-size:20px;
+
+    margin-bottom:28px;
+}
+
+.pass-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:30px;
+}
+
+.pass-dots span{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    border:3px solid rgba(255,255,255,.55);
+
+    transition:.25s;
+}
+
+.pass-dots span.active{
+
+    background:white;
+
+    transform:scale(1.15);
+}
+
+.number-pad{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+}
+
+.number-pad button{
+
+    width:90px;
+
+    height:78px;
+
+    margin:auto;
+
+    border:none;
+
+    border-radius:22px;
+
+    background:var(--card);
+
+    color:var(--ink);
+
+    border:1px solid var(--card-border);
+
+    box-shadow:0 8px 18px var(--card-shadow);
+
+    backdrop-filter:blur(12px);
+
+    transition:.25s;
+
+    font-size:38px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.number-pad button:hover{
+
+    transform:scale(1.05);
+
+    background:rgba(255,255,255,.18);
+}
+
+.number-pad button:active{
+
+    transform:scale(.95);
+}
+
+.hint{
+
+    color:var(--ink-dim);
+
+    margin-top:24px;
+
+    font-size:18px;
+}
+
+/* Unlock */
+
+.unlock{
+
+animation:unlock .8s forwards;
+}
+
+@keyframes unlock{
+
+100%{
+
+opacity:0;
+
+visibility:hidden;
+
+transform:scale(1.08);
+
+}
+
+}
+
+/* Wrong Code */
+
+.shake{
+
+animation:shake .35s;
+}
+
+@keyframes shake{
+
+20%{transform:translateX(-8px);}
+40%{transform:translateX(8px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+100%{transform:translateX(0);}
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.lock-card{
+
+padding:22px;
+}
+
+.gift{
+
+font-size:64px;
+}
+
+.name{
+
+font-size:44px;
+}
+
+.number-pad button{
+
+width:84px;
+
+height:74px;
+
+font-size:34px;
+}
+
+.subtitle{
+
+font-size:18px;
+}
+}
+
+
+
+
+/* ===============================
+        CONFETTI
+================================ */
+
+#confetti{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:999998;
+}
+
+.confetti{
+
+    position:absolute;
+
+    width:10px;
+
+    height:16px;
+
+    border-radius:3px;
+
+    animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-10vh) rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/* Button Click Effect */
+
+.number-pad button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.number-pad button::after{
+
+content:"";
+
+position:absolute;
+
+width:0;
+
+height:0;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.35);
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+transition:.35s;
+}
+
+.number-pad button:active::after{
+
+width:180px;
+
+height:180px;
+}
+
+/* Gift glow */
+
+.gift{
+
+filter:drop-shadow(0 0 20px rgba(255,215,0,.6));
+
+}
+
+
+
+
+
+/* =========================================
+            LETTER COLLECTION
+========================================= */
+
+.letters-page{
+    position:relative;
+    width:100%;
+    max-width:950px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:26px;
+}
+
+.letters-header{
+    text-align:center;
+}
+
+.letters-progress{
+    display:flex;
+    gap:12px;
+    font-size:28px;
+    margin-top:8px;
+}
+
+.progress-heart{
+    transition:.35s;
+}
+
+.letters-grid{
+
+    width:100%;
+    max-width:760px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:20px;
+
+}
+
+/* ======================
+      ENVELOPES
+====================== */
+
+.letter-envelope{
+
+    position:relative;
+
+    background:var(--card);
+
+    border:2px solid var(--card-border);
+
+    border-radius:22px;
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 15px 30px var(--card-shadow);
+
+    padding:28px 20px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+    overflow:hidden;
+
+}
+
+/* Envelope flap */
+
+.letter-envelope::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:55%;
+
+    background:rgba(255,255,255,.08);
+
+    clip-path:polygon(0 0,100% 0,50% 100%);
+
+}
+
+/* Wax Seal */
+
+.letter-envelope::after{
+
+    content:"❤";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        145deg,
+        #ff6b91,
+        #ff2f68
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:16px;
+
+    box-shadow:
+        0 6px 16px rgba(0,0,0,.25);
+
+}
+
+.letter-envelope:hover{
+
+    transform:
+        translateY(-10px)
+        rotate(-2deg);
+
+    box-shadow:
+        0 24px 40px var(--card-shadow);
+
+}
+
+.letter-envelope:active{
+
+    transform:scale(.95);
+
+}
+
+.letter-envelope span{
+
+    margin-top:52px;
+
+    color:var(--ink);
+
+    font-weight:700;
+
+    font-size:14px;
+
+    text-align:center;
+
+    line-height:1.4;
+
+}
+
+.letter-envelope{
+
+    font-size:40px;
+
+    animation:letterFloat 4s ease-in-out infinite;
+
+}
+
+.letter-envelope:nth-child(2){
+
+    animation-delay:.5s;
+
+}
+
+.letter-envelope:nth-child(3){
+
+    animation-delay:1s;
+
+}
+
+.letter-envelope:nth-child(4){
+
+    animation-delay:1.5s;
+
+}
+
+.letter-envelope:nth-child(5){
+
+    animation-delay:2s;
+
+}
+
+.letter-envelope:nth-child(6){
+
+    animation-delay:2.5s;
+
+}
+
+@keyframes letterFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+/* Locked */
+
+.locked{
+
+opacity:.55;
+
+filter:grayscale(.3);
+
+}
+
+.locked::after{
+
+background:#999;
+
+}
+
+/* ======================
+      LETTER VIEWER
+====================== */
+
+#letterViewer{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(14px);
+
+}
+
+#letterViewer.show{
+
+display:flex;
+
+animation:fadeViewer .4s;
+
+}
+
+@keyframes fadeViewer{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+.letter-paper{
+
+    position:relative;
+
+    width:min(90%,650px);
+
+    min-height:500px;
+
+    padding:50px;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #fffdf7,
+        #fff8ef
+    );
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,.28);
+
+    overflow:auto;
+
+    animation:paperOpen .45s ease;
+
+}
+
+/* Floral corners */
+
+.letter-paper::before{
+
+content:"🌸";
+
+position:absolute;
+
+top:18px;
+
+left:20px;
+
+font-size:28px;
+
+}
+
+.letter-paper::after{
+
+content:"🌸";
+
+position:absolute;
+
+bottom:18px;
+
+right:20px;
+
+font-size:28px;
+
+}
+
+@keyframes paperOpen{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+#letterTitle{
+
+font-family:var(--serif);
+
+font-size:34px;
+
+text-align:center;
+
+color:#8d4a63;
+
+margin-bottom:24px;
+
+}
+
+#letterContent{
+
+font-size:18px;
+
+line-height:2;
+
+color:#5c4c57;
+
+white-space:pre-wrap;
+
+}
+
+#closeLetter{
+
+position:absolute;
+
+right:20px;
+
+top:20px;
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+background:#ff7aa2;
+
+color:white;
+
+font-size:20px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+#closeLetter:hover{
+
+transform:rotate(90deg);
+
+}
+
+.continue-btn{
+
+display:none;
+
+margin-top:18px;
+
+padding:14px 30px;
+
+border:none;
+
+border-radius:40px;
+
+background:linear-gradient(
+90deg,
+var(--pink),
+var(--lavender)
+);
+
+color:white;
+
+font-weight:700;
+
+font-size:16px;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px var(--card-shadow);
+
+}
+
+.continue-btn.show{
+
+display:inline-block;
+
+animation:popup .5s;
+
+}
+
+/* ======================
+      MOBILE
+====================== */
+
+@media(max-width:650px){
+
+.letters-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+}
+
+.letter-paper{
+
+padding:30px;
+
+min-height:420px;
+
+}
+
+#letterTitle{
+
+font-size:28px;
+
+}
+
+#letterContent{
+
+font-size:16px;
+
+}
+
+}
+
+
+
+/* ==========================================
+        LETTER PREMIUM ANIMATIONS
+========================================== */
+
+#petals{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:999998;
+}
+
+.petal{
+    position:absolute;
+    top:-30px;
+    font-size:22px;
+    animation:petalFall linear forwards;
+}
+
+@keyframes petalFall{
+
+0%{
+transform:translateY(-20px) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:
+translateY(110vh)
+translateX(120px)
+rotate(540deg);
+
+opacity:0;
+}
+
+}
+
+/* Lift envelope */
+
+.letter-envelope.opening{
+
+animation:
+liftEnvelope .6s ease forwards;
+
+}
+
+@keyframes liftEnvelope{
+
+0%{
+transform:scale(1);
+}
+
+40%{
+transform:
+translateY(-18px)
+scale(1.08)
+rotate(-4deg);
+}
+
+100%{
+transform:
+translateY(-60px)
+scale(.2);
+opacity:0;
+}
+
+}
+
+/* Paper unfold */
+
+.letter-paper{
+
+transform-origin:top center;
+
+}
+
+.letter-paper.open{
+
+animation:paperUnfold .6s ease;
+
+}
+
+@keyframes paperUnfold{
+
+0%{
+
+transform:
+rotateX(-90deg)
+scale(.85);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:
+rotateX(0)
+scale(1);
+
+opacity:1;
+
+}
+
+}
+
+/* Close */
+
+.letter-paper.close{
+
+animation:paperClose .35s ease forwards;
+
+}
+
+@keyframes paperClose{
+
+100%{
+
+transform:
+scale(.8);
+
+opacity:0;
+
+}
+
+}
+
+
+
+/* ======================================
+        GRAND FINALE
+====================================== */
+
+.gift-box{
+
+width:150px;
+height:150px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:90px;
+
+cursor:pointer;
+
+transition:.4s;
+
+animation:giftBounce 2.5s infinite;
+
+}
+
+@keyframes giftBounce{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+.letters-grid{
+    width:100%;
+    max-width:760px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-top:20px;
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(60px) scale(.85);
+    transition:all .8s cubic-bezier(.2,.9,.2,1);
+}
+
+.letters-grid.show-grid{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateY(0) scale(1);
+}
+
+.open-box{
+
+animation:boxOpen .7s forwards;
+
+}
+
+@keyframes boxOpen{
+
+100%{
+
+transform:
+scale(.6)
+rotate(-12deg);
+
+opacity:0;
+
+}
+
+}
+
+.unlock-glow{
+
+animation:unlockGlow 1.2s infinite;
+
+}
+
+@keyframes unlockGlow{
+
+0%,100%{
+
+box-shadow:0 0 0 rgba(255,120,160,0);
+
+}
+
+50%{
+
+box-shadow:0 0 30px rgba(255,120,160,.7);
+
+}
+
+}
+
+
+
+.letters-box{
+    position: relative;
+    width: 100%;
+    min-height: 420px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-box{
+    position: absolute;
+    z-index: 20;
+}
+
+.letters-grid{
+    position: absolute;
+    z-index: 10;
+}
+
+
+
+.gift-box.opened{
+    animation: giftOpen .8s ease forwards;
+}
+
+@keyframes giftOpen{
+    0%{
+        transform:scale(1) rotate(0deg);
+    }
+    30%{
+        transform:scale(1.15) rotate(-8deg);
+    }
+    60%{
+        transform:scale(0.95) rotate(8deg);
+    }
+    100%{
+        transform:scale(0);
+        opacity:0;
+    }
+}
+
+
+
+
+.gift-box{
+    width:130px;
+    height:130px;
+    margin:40px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    cursor:pointer;
+    animation:giftFloat 2s ease-in-out infinite;
+    transition:.5s;
+}
+
+.gift-box:hover{
+    transform:scale(1.08);
+}
+
+.gift-box.opened{
+    animation:giftOpen .7s forwards;
+}
+
+@keyframes giftFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+@keyframes giftOpen{
+    0%{
+        transform:scale(1) rotate(0);
+    }
+    40%{
+        transform:scale(1.15) rotate(-8deg);
+    }
+    100%{
+        transform:scale(0);
+        opacity:0;
+    }
+}
+
+
+
+
+.magic-key{
+    position:fixed;
+    font-size:40px;
+    z-index:99999;
+    pointer-events:none;
+    animation:keyFly 1.6s ease forwards;
+}
+
+@keyframes keyFly{
+
+    0%{
+        left:50%;
+        top:90%;
+        transform:translate(-50%,0) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        left:50%;
+        top:35%;
+        transform:translate(-50%,0) scale(1.3) rotate(360deg);
+        opacity:1;
+    }
+
+}
+
+.unlockFlash{
+    animation:unlockFlash .8s;
+}
+
+@keyframes unlockFlash{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.3);
+        filter:drop-shadow(0 0 25px gold);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+
+/* =========================================
+   CELEBRATION SLIDE
+========================================= */
+
+.celebration-stage{
+    position:absolute;
+    inset:0;
+    z-index:20;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    background:linear-gradient(-45deg,#ffdde8,#ffd6f5,#e8d8ff,#fff3d8);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+}
+
+/* Background */
+
+.celebration-bg{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+/* Content */
+
+.celebration-content{
+    position:relative;
+    z-index:5;
+    max-width:520px;
+}
+
+/* Heading */
+
+.cele-title{
+    font-family:var(--serif);
+    font-size:2.2rem;
+    color:#fff;
+    text-shadow:0 0 18px rgba(255,120,200,.8);
+    animation:floatText 3s ease-in-out infinite;
+}
+
+.cele-name{
+    font-family:var(--serif);
+    font-size:3rem;
+    margin-top:8px;
+    color:#ff4fa2;
+    text-shadow:0 0 25px rgba(255,255,255,.9);
+    animation:glowName 2.5s ease-in-out infinite;
+}
+
+/* Photo */
+
+.photo-glow{
+    width:220px;
+    height:220px;
+    margin:35px auto;
+    border-radius:50%;
+    padding:8px;
+    background:linear-gradient(45deg,#ff8ac8,#ffd86b,#8dd8ff,#d78cff);
+    animation:rotateGlow 8s linear infinite;
+}
+
+.cele-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid white;
+    box-shadow:0 15px 45px rgba(0,0,0,.25);
+    animation:photoPop .8s ease;
+}
+
+/* Message */
+
+.cele-message{
+    margin-top:18px;
+    font-size:1.05rem;
+    line-height:1.8;
+    color:#5b4b6a
