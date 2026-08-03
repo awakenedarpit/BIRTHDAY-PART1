@@ -2199,26 +2199,26 @@ transform:translateY(-12px);
 
 }
 
-.hidden-grid{
+.letters-grid{
+    width:100%;
+    max-width:760px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-top:20px;
 
-opacity:0;
-
-pointer-events:none;
-
-transform:translateY(60px) scale(.85);
-
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(60px) scale(.85);
+    transition:all .8s cubic-bezier(.2,.9,.2,1);
 }
 
-.show-grid{
-
-opacity:1;
-
-pointer-events:auto;
-
-transform:translateY(0) scale(1);
-
-transition:.8s cubic-bezier(.2,.9,.2,1);
-
+.letters-grid.show-grid{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateY(0) scale(1);
 }
 
 .open-box{
