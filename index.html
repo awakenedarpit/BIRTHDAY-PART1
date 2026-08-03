@@ -8,7 +8,72 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="bday.css">
 </head>
-<body data-theme="dark">
+<body data-theme="light">
+
+<!-- ==============================
+     PREMIUM LOCK SCREEN v2
+================================ -->
+<div id="lockScreen">
+
+    <div class="lock-card">
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <p class="top-title">
+            A BIRTHDAY SURPRISE FOR
+        </p>
+
+        <h1 class="name">
+            Mahima
+        </h1>
+
+        <p class="subtitle">
+            🔐 Enter the Secret Passcode
+        </p>
+
+        <div id="passDots" class="pass-dots">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <div class="number-pad">
+
+            <button class="digit">1</button>
+            <button class="digit">2</button>
+            <button class="digit">3</button>
+
+            <button class="digit">4</button>
+            <button class="digit">5</button>
+            <button class="digit">6</button>
+
+            <button class="digit">7</button>
+            <button class="digit">8</button>
+            <button class="digit">9</button>
+
+            <div></div>
+
+            <button class="digit">0</button>
+
+            <button id="deleteBtn">
+                ⌫
+            </button>
+
+        </div>
+
+        <p class="hint">
+            Tap the numbers to enter your code
+        </p>
+
+    </div>
+
+</div>
+
 
   <div class="aurora"><span></span><span></span><span></span><span></span></div>
   <div id="particles"></div>
@@ -18,46 +83,226 @@
   <div class="balloon b3"></div>
   <div class="balloon b4"></div>
 
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">☀️</button>
-
+  <button class="theme-toggle" id="themeToggle">🌙</button>
   <div class="progress" id="progress"></div>
 
   <div class="stage" id="stage">
 
     <!-- Slide 1 -->
-    <section class="slide active" data-index="0">
+<section class="slide active" data-index="0">
+  <div class="hero-row">
+    <div class="hero-text">
       <div class="eyebrow">💗 For Someone Special 💗</div>
       <h1>Something Special For<em> My Favourite Person's</em> Birthday</h1>
       <p class="sub">Made With Love By Arpit Raj 🌸</p>
-    </section>
+    </div>
+  <!--  <div class="hero-photo">
+      <img src="images/hero.jpg" alt="">
+    </div>-->
+  </div>
+</section>
 
-    <!-- Slide 2 -->
-    <section class="slide" data-index="1">
-      <div class="orbit">
-        <div class="ring r1"></div>
-        <div class="ring r2"></div>
-        <div class="ring r3"></div>
-        <div class="bloom">🌸</div>
-      </div>
-      <h1>You are literally</h1>
-      <p class="quote">the universe's favourite creation ✨</p>
-    </section>
+  <!-- ================= Slide 2 ================= -->
+<section class="slide" data-index="1">
 
+<div class="photo-wall">
+
+  <svg class="rope rope-top" viewBox="0 0 1000 60" preserveAspectRatio="none">
+    <path d="M0,15 Q250,55 500,20 Q750,-15 1000,15" stroke="#b88755" stroke-width="3" fill="none"/>
+  </svg>
+  <svg class="rope rope-bottom" viewBox="0 0 1000 60" preserveAspectRatio="none">
+    <path d="M0,15 Q500,55 1000,15" stroke="#b88755" stroke-width="3" fill="none"/>
+  </svg>
+
+  <span class="decor" style="top:4%; left:8%;">🌸</span>
+  <span class="decor" style="top:20%; left:60%;">💗</span>
+  <span class="decor" style="top:38%; left:3%;">⭐</span>
+  <span class="decor" style="top:60%; left:88%;">🦋</span>
+  <span class="decor" style="top:70%; left:6%;">🎀</span>
+
+  <div class="photo p1">
+    <div class="string"></div>
+    <img src="images/p1.jpg" alt="">
+    <p class="caption">Your smile<br>makes everything better ♡</p>
+  </div>
+
+  <div class="photo p2">
+    <div class="string"></div>
+    <img src="images/p2.jpg" alt="">
+    <p class="caption">My favorite<br>person in the world ♡</p>
+  </div>
+
+  <div class="photo p3">
+    <div class="string"></div>
+    <img src="images/p3.jpg" alt="">
+    <p class="caption">You are my<br>sunshine ☀️</p>
+  </div>
+
+  <div class="photo p4">
+    <div class="string"></div>
+    <img src="images/p4.jpg" alt="">
+    <p class="caption">Beautiful soul<br>inside and out ♡</p>
+  </div>
+
+  <div class="photo p5">
+    <div class="string"></div>
+    <img src="images/p5.jpg" alt="">
+    <p class="caption">Forever my<br>person ♡</p>
+  </div>
+
+</div>
+
+<div class="orbit">
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+  <div class="ring r3"></div>
+  <div class="bloom">🌸</div>
+</div>
+
+<h1>You are literally</h1>
+<p class="quote">the universe's favourite creation ✨</p>
+
+</section>
     <!-- Slide 3 -->
-    <section class="slide" data-index="2">
-      <h1 style="font-size:clamp(24px,5vw,36px);">Why you're amazing</h1>
-      <p class="sub" style="margin-top:6px;">let me count the ways 🎀</p>
-      <div class="reasons">
-        <div class="reason"><span class="ic">🌟</span>Your smile literally lights up every room</div>
-        <div class="reason"><span class="ic">💞</span>The way you care about people is unmatched</div>
-        <div class="reason"><span class="ic">✨</span>You make ordinary moments feel magical</div>
-        <div class="reason"><span class="ic">🎀</span>The world is genuinely better with you in it</div>
-      </div>
-    </section>
+<!-- Slide 3 -->
+<section class="slide" data-index="2">
+  <h1 style="font-size:clamp(24px,5vw,36px);">Why you're amazing</h1>
+  <p class="sub" style="margin-top:6px;">let me count the ways 🎀</p>
+
+  <div class="memory-cluster">
+    <div class="mem-photo m1"><img src="images/m1.jpg" alt=""></div>
+    <div class="mem-photo m2"><img src="images/m2.jpg" alt=""></div>
+    <div class="mem-photo m3"><img src="images/m3.jpg" alt=""></div>
+  </div>
+
+  <div class="reasons">
+    <div class="reason"><span class="ic">🌟</span>Your smile literally lights up every room</div>
+    <div class="reason"><span class="ic">💞</span>The way you care about people is unmatched</div>
+    <div class="reason"><span class="ic">✨</span>You make ordinary moments feel magical</div>
+    <div class="reason"><span class="ic">🎀</span>The world is genuinely better with you in it</div>
+  </div>
+
+<span class="decor" style="top:8%; left:10%;">🌷</span>
+<span class="decor" style="top:14%; right:12%;">🪷</span>
+<span class="decor" style="top:22%; left:75%;">🌷</span>
+<span class="decor" style="top:5%; left:45%;">🪷</span>
+
+<span class="decor" style="top:68%; left:15%;">🌷</span>
+<span class="decor" style="top:75%; right:18%;">🪷</span>
+<span class="decor" style="top:85%; left:55%;">🌷</span>
+<span class="decor" style="top:78%; left:8%;">🪷</span>
+
+<span class="decor big" style="top:10%; left:20%;">🌹</span>
+<span class="decor big" style="top:6%; right:8%;">🌻</span>
+<span class="decor big" style="top:18%; left:55%;">💐</span>
+
+<span class="decor big" style="top:70%; right:10%;">🌹</span>
+<span class="decor big" style="top:80%; left:25%;">🌻</span>
+<span class="decor big" style="top:90%; right:35%;">💐</span>
+
+<span class="decor big" style="top:10%; left:20%;">🌟</span>
+<span class="decor big" style="top:6%; right:8%;">✨</span>
+<span class="decor big" style="top:18%; left:55%;">🔥</span>
+
+<span class="decor big" style="top:70%; right:10%;">✨</span>
+<span class="decor big" style="top:80%; left:25%;">🌟</span>
+<span class="decor big" style="top:90%; right:35%;">🔥</span>
+
+<span class="decor big" style="top:10%; left:20%;">🤭</span>
+<span class="decor big" style="top:6%; right:8%;">🎀</span>
+<span class="decor big" style="top:18%; left:55%;">🩷</span>
+
+<span class="decor big" style="top:70%; right:10%;">🤭</span>
+<span class="decor big" style="top:80%; left:25%;">🎀</span>
+<span class="decor big" style="top:90%; right:35%;">🩷</span>
+
+<span class="decor-float" style="top:12%; left:8%;">🌸</span>
+<span class="decor-float" style="top:75%; right:8%; animation-delay:1s;">💫</span>
+<span class="decor-float" style="top:65%; left:6%; animation-delay:.5s;">⭐</span>
+<span class="decor-float" style="top:18%; right:10%; animation-delay:1.5s;">🎀</span>
+
+</section>
+
+    
+      
 
     <!-- Slide 4 -->
     <section class="slide" data-index="3">
-      <div class="cake-wrap">
+
+<!-- ===== Wish Ceremony Intro ===== -->
+
+<div class="wish-intro">
+
+    <div class="intro-cloud">
+
+        <h2 id="wishTitle">
+            ✨ The Wish Ceremony ✨
+        </h2>
+
+        <p id="wishSubtitle">
+            Every birthday begins with a wish...
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="wish-box">
+
+    <h2>💭 Make a Birthday Wish</h2>
+
+    <p class="wish-note">
+        🌟 Choose all the wishes you would love to see fulfilled.
+    </p>
+
+<div class="wish-clouds">
+
+<div class="wish-cloud" style="--d:0s;">💖 Endless Happiness</div>
+
+<div class="wish-cloud" style="--d:.3s;">🌸 Good Health</div>
+
+<div class="wish-cloud" style="--d:.6s;">🎓 Academic Success</div>
+
+<div class="wish-cloud" style="--d:.9s;">💼 Dream Career</div>
+
+<div class="wish-cloud" style="--d:1.2s;">✈️ Travel the World</div>
+
+<div class="wish-cloud" style="--d:1.5s;">👨‍👩‍👧 Family Happiness</div>
+
+<div class="wish-cloud" style="--d:1.8s;">💕 True Love</div>
+
+<div class="wish-cloud" style="--d:2.1s;">😊 A Beautiful Smile Every Day</div>
+
+<div class="wish-cloud" style="--d:2.4s;">💰 Financial Freedom</div>
+
+<div class="wish-cloud" style="--d:2.7s;">🌈 Peace of Mind</div>
+
+<div class="wish-cloud" style="--d:3s;">🎁 Beautiful Surprises</div>
+
+<div class="wish-cloud" style="--d:3.3s;">⭐ May All My Wishes Come True</div>
+
+</div>
+
+    <h3>🤫 Any Other Secret Wish?</h3>
+
+    <p class="wish-note">
+        Type your heart's deepest wish below.
+        <br>
+        <b>Only Arpit will know it. 💌</b>
+    </p>
+
+    <textarea
+        placeholder="Write your secret wish here... ✨">
+    </textarea>
+
+    <button id="sendWishesBtn">
+    💌 Send My Wishes
+</button>
+
+</div>
+
+<div class="cake-wrap">
         <div class="candles">
           <div class="candle c1"><div class="flame" data-flame></div><div class="puff" data-puff>💨</div></div>
           <div class="candle c2"><div class="flame" data-flame></div><div class="puff" data-puff>💨</div></div>
@@ -70,12 +315,272 @@
         </div>
       </div>
       <div class="wish-cta">Make a wish 🌙</div>
-      <div class="hint">✨ tap anywhere to blow them out</div>
+      <div class="hint">✨ ✨ Your wishes are travelling to the stars...</div>
+
+
+<div class="wish-popup" id="wishPopup">
+
+    <div class="popup-card">
+
+        <div class="star">🌠</div>
+
+        <h2>Your Wishes Have Been Sent To The Stars ✨</h2>
+
+        <p>
+            The universe has received these beautiful wishes...
+        </p>
+
+        <ul id="selectedWishList"></ul>
+
+        <p class="popup-end">
+
+            🌸 May every one of these wishes come true.
+
+            <br><br>
+
+            Happy Birthday once again! 💖
+
+        </p>
+
+        <button id="continueBtn">
+
+            Continue 🎂
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="star-layer" id="starLayer"></div>
+
     </section>
 
+
+
+<!-- =========================================
+        LETTER COLLECTION
+========================================= -->
+
+<section class="slide" data-index="4">
+
+    <div class="letters-page">
+
+        <div class="letters-header">
+
+            <div class="eyebrow">
+                One More Surprise 💌
+            </div>
+
+            <h1>
+                Six Little Letters
+                <br>
+                <em>Just For You</em>
+            </h1>
+
+            <p class="sub">
+                Every envelope hides a different message.
+                Open them in any order.
+            </p>
+
+        </div>
+
+        <!-- Progress -->
+
+        <div class="letters-progress">
+
+            <div class="progress-heart" id="heart1">🤍</div>
+            <div class="progress-heart" id="heart2">🤍</div>
+            <div class="progress-heart" id="heart3">🤍</div>
+            <div class="progress-heart" id="heart4">🤍</div>
+            <div class="progress-heart" id="heart5">🤍</div>
+            <div class="progress-heart" id="heart6">🔒</div>
+
+        </div>
+
+        <!-- Envelopes -->
+
+        <div class="letters-box" id="lettersBox">
+
+    <div class="gift-box" id="giftBox">🎁</div>
+
+<div class="letters-grid hidden-grid" id="lettersGrid">
+
+            <button class="letter-envelope" data-letter="1">
+
+                💌
+
+                <span>
+                    Read Me First
+                </span>
+
+            </button>
+
+            <button class="letter-envelope" data-letter="2">
+
+                🌸
+
+                <span>
+                    A Little Sunshine
+                </span>
+
+            </button>
+
+            <button class="letter-envelope" data-letter="3">
+
+                🌙
+
+                <span>
+                    Quiet Thoughts
+                </span>
+
+            </button>
+
+            <button class="letter-envelope" data-letter="4">
+
+                ⭐
+
+                <span>
+                    Dreams
+                </span>
+
+            </button>
+
+            <button class="letter-envelope" data-letter="5">
+
+                🎁
+
+                <span>
+                    Tiny Secret
+                </span>
+
+            </button>
+
+            <button
+                class="letter-envelope locked"
+                data-letter="6">
+
+                ❤️
+
+                <span>
+                    Open Last
+                </span>
+
+            </button>
+
+        </div>
+
+        <button
+            id="continueLetters"
+            class="continue-btn">
+
+            Continue →
+
+        </button>
+
+    </div>
+<!-- ==========================================
+        LETTER VIEWER
+========================================== -->
+
+<div id="letterViewer">
+
+    <div class="letter-paper">
+
+        <button id="closeLetter">
+
+            ✕
+
+        </button>
+
+        <h2 id="letterTitle">
+
+        </h2>
+
+        <div id="letterContent">
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="petals"></div>
+
+</section>
+
+
+
+<!-- =========================================
+     CELEBRATION SLIDE
+========================================= -->
+
+<section class="celebration-stage" id="celebrationStage">
+
+    <!-- Background Decorations -->
+    <div class="celebration-bg">
+
+        <!-- Balloons -->
+        <div class="balloon b1"></div>
+        <div class="balloon b2"></div>
+        <div class="balloon b3"></div>
+        <div class="balloon b4"></div>
+        <div class="balloon b5"></div>
+        <div class="balloon b6"></div>
+
+        <!-- Hearts -->
+        <span class="heart h1">💖</span>
+        <span class="heart h2">💗</span>
+        <span class="heart h3">💕</span>
+        <span class="heart h4">💞</span>
+
+        <!-- Sparkles -->
+        <span class="spark s1">✨</span>
+        <span class="spark s2">✨</span>
+        <span class="spark s3">✨</span>
+        <span class="spark s4">✨</span>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="celebration-content">
+
+        <h2 class="cele-title">
+            🎉 Happy Birthday 🎉
+        </h2>
+
+        <h1 class="cele-name">
+            Mahima 💖
+        </h1>
+
+        <!-- Photo -->
+        <div class="photo-glow">
+
+            <img
+                src="images/hero.jpg"
+                alt="Mahima"
+                class="cele-photo">
+
+        </div>
+
+        <p class="cele-message">
+            Wishing you endless happiness,
+            beautiful memories,
+            and a year filled with love,
+            laughter and dreams come true. 🌸✨
+        </p>
+
+        <button id="celeContinueBtn" class="cele-btn">
+            Continue ➜
+        </button>
+
+    </div>
+
+</section>
+
     <!-- Slide 5 -->
-    <section class="slide" data-index="4">
-      <div class="eyebrow">🎉 happy happy birthday 🎉</div>
+    <section class="slide" data-index="5">
+      <div class="eyebrow">🎉 Happy Happy Birthday 🎉</div>
       <h1>Happy <em>Birthday!</em>
 <em>Mahima</em> ✨🎀</h1>
       <p class="quote">
@@ -155,8 +660,58 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 </script>
 
 <script>
+
+let selectedWishes=[];
+
+document.querySelectorAll(".wish-cloud").forEach(cloud=>{
+
+cloud.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+cloud.classList.toggle("selected");
+
+const wish=cloud.textContent.trim();
+
+if(cloud.classList.contains("selected")){
+
+if(!selectedWishes.includes(wish)){
+
+selectedWishes.push(wish);
+
+}
+
+}else{
+
+selectedWishes=selectedWishes.filter(w=>w!==wish);
+
+}
+
+createSparkle(cloud);
+
+});
+
+});
+
+function createSparkle(el){
+
+const sparkle=document.createElement("div");
+
+sparkle.className="wishSparkle";
+
+sparkle.innerHTML="✨";
+
+el.appendChild(sparkle);
+
+setTimeout(()=>sparkle.remove(),700);
+
+}
+
+
+
   const bgMusic = document.getElementById("bgMusic");
   const slides = document.querySelectorAll('.slide');
+
   const total = slides.length;
   const progressEl = document.getElementById('progress');
   const stage = document.getElementById('stage');
@@ -205,22 +760,62 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
   }
 
   function blowCandles(){
+
     candlesBlown = true;
+
     const flames = document.querySelectorAll('[data-flame]');
     const puffs = document.querySelectorAll('[data-puff]');
-    flames.forEach((f,i)=>{
-      setTimeout(()=>{
-        f.classList.add('out');
-        puffs[i].classList.add('go');
-      }, i*150);
-    });
-    setTimeout(()=>goTo(current+1), 750);
-  }
 
-  stage.addEventListener('click', (e)=>{
+    flames.forEach((f,i)=>{
+        setTimeout(()=>{
+            f.classList.add('out');
+            puffs[i].classList.add('go');
+        },i*150);
+    });
+
+    setTimeout(()=>{
+
+        const popup=document.getElementById("wishPopup");
+        const list=document.getElementById("selectedWishList");
+
+        list.innerHTML="";
+
+        if(selectedWishes.length===0){
+
+            list.innerHTML="<li>🌠 Every beautiful wish in your heart.</li>";
+
+        }else{
+
+            selectedWishes.forEach(wish=>{
+
+                list.innerHTML+=`<li>${wish}</li>`;
+
+            });
+
+        }
+
+        showNightSky();
+
+    },800);
+
+}
+
+  stage.addEventListener("click", (e) => {
+
+    if (
+    e.target.closest('.wish-box') ||
+    e.target.closest('textarea') ||
+    e.target.closest('button') ||
+    e.target.closest('.wish-cloud') ||
+    e.target.closest('.gift-box') ||
+    e.target.closest('.letter-envelope') ||
+    e.target.closest('#letterViewer')
+){
+    return;
+}
     spawnTapSparkle(e.clientX, e.clientY);
     next();
-  });
+});
 
   document.addEventListener('keydown',(e)=>{
     if(e.key==='ArrowRight' || e.key===' ') next();
@@ -253,13 +848,13 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
 
   /* ---------- ambient floating stickers ---------- */
   const particleWrap = document.getElementById('particles');
-  const stickerEmojis = ['✨','🌸','💗','⭐','🎀','💫'];
+  const stickerEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function spawnParticle(){
     const p = document.createElement('div');
     p.className='particle';
     p.textContent = stickerEmojis[Math.floor(Math.random()*stickerEmojis.length)];
     p.style.left = Math.random()*100+'vw';
-    p.style.fontSize = (12 + Math.random()*10)+'px';
+    p.style.fontSize = (22 + Math.random()*16)+'px';
     const dur = 9 + Math.random()*9;
     p.style.animationDuration = dur+'s';
     particleWrap.appendChild(p);
@@ -269,7 +864,7 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
   for(let i=0;i<10;i++) setTimeout(spawnParticle, i*280);
 
   /* ---------- confetti burst for finale ---------- */
-  const confettiEmojis = ['💗','🎀','✨','🌸','⭐','💕'];
+  const confettiEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function fireConfetti(){
     const burst = document.getElementById('burst');
     for(let i=0;i<45;i++){
@@ -286,7 +881,7 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
   }
 
   /* ---------- tap sparkle trail ---------- */
-  const sparkleEmojis = ['✨','💫','⭐','🎀'];
+  const sparkleEmojis = ['✨','🌸','💗','⭐','🎀','💫','🩷','🔥 ','😍','🙈','🥳','😘','🥰','😉','🫠','🩵','💓','💞','💕','🫂','❣️','💖','🦋','💐','🌼','🌻','🌺','🌷','🌹','☘️'];
   function spawnTapSparkle(x,y){
     for(let i=0;i<6;i++){
       const s = document.createElement('div');
@@ -303,6 +898,74 @@ YOU ARE AN UNFORGETTABLE PART IN MY LIFE."
       setTimeout(()=>s.remove(), 750);
     }
   }
+
+const sendBtn = document.getElementById("sendWishesBtn");
+
+sendBtn.addEventListener("click", function(e){
+
+    e.stopPropagation();
+
+    if(selectedWishes.length === 0){
+        alert("Please select at least one wish 🌸");
+        return;
+    }
+
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = "✨ Sending Wishes...";
+
+    document.querySelectorAll(".wish-cloud.selected").forEach((cloud,index)=>{
+        setTimeout(()=>{
+            cloud.classList.add("fly");
+        }, index * 250);
+    });
+
+    setTimeout(()=>{
+        showNightSky();
+    },1800);
+
+});
+
+function showNightSky(){
+
+    const layer = document.getElementById("starLayer");
+
+    // Clear previous stars
+    layer.innerHTML = "";
+    layer.classList.add("show");
+
+    // Create fewer stars
+    for(let i = 0; i < 35; i++){
+
+        const star = document.createElement("div");
+        star.className = "star";
+        star.innerHTML = "⭐";
+
+        star.style.left = Math.random()*100 + "%";
+        star.style.top = Math.random()*100 + "%";
+        star.style.animationDelay = Math.random()*2 + "s";
+
+        layer.appendChild(star);
+    }
+
+    // Launch shooting star
+    shootingStar();
+}
+
+function shootingStar(){
+
+    const layer = document.getElementById("starLayer");
+
+    const star = document.createElement("div");
+    star.className = "shooting-star";
+    star.innerHTML = "🌠";
+
+    layer.appendChild(star);
+
+    setTimeout(() => {
+        star.remove();
+        showWishPopup();
+    }, 2500);
+}
 
   updateProgress();
 
@@ -321,7 +984,655 @@ function playMusic() {
 document.addEventListener("click", playMusic, { once: true });
 document.addEventListener("touchstart", playMusic, { once: true });
 
+
+document.getElementById("continueBtn").addEventListener("click",()=>{
+
+    document.getElementById("wishPopup").classList.remove("show");
+
+    document.getElementById("starLayer").innerHTML="";
+document.getElementById("starLayer").classList.remove("show");
+
+goTo(current+1);
+
+});
+
+
+/* ===== Wish Ceremony Messages ===== */
+
+const messages = [
+
+"Every birthday begins with a wish...",
+
+"Close your eyes for a moment... 🌸",
+
+"Imagine the happiest version of yourself... ✨",
+
+"Now tell the stars what your heart truly wishes for... 🌠"
+
+];
+
+let msgIndex=0;
+
+const subtitle=document.getElementById("wishSubtitle");
+
+setInterval(()=>{
+
+    msgIndex=(msgIndex+1)%messages.length;
+
+    subtitle.style.opacity=0;
+
+    setTimeout(()=>{
+
+        subtitle.innerHTML=messages[msgIndex];
+
+        subtitle.style.opacity=1;
+
+    },400);
+
+},3500);
+
+
+
+
+/* ==========================================
+        PREMIUM PASSCODE SYSTEM
+========================================== */
+
+// ===== CHANGE YOUR PASSCODE HERE =====
+const PASSCODE = "1234";
+
+// =====================================
+
+let enteredCode = "";
+
+const lockScreen = document.getElementById("lockScreen");
+const lockCard = document.querySelector(".lock-card");
+
+const dots = document.querySelectorAll("#passDots span");
+
+const digitButtons = document.querySelectorAll(".digit");
+
+const deleteBtn = document.getElementById("deleteBtn");
+
+function updateDots(){
+
+    dots.forEach((dot,index)=>{
+
+        if(index < enteredCode.length){
+
+            dot.classList.add("active");
+
+        }else{
+
+            dot.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+function clearCode(){
+
+    enteredCode="";
+
+    updateDots();
+
+}
+
+function wrongCode(){
+
+    if(navigator.vibrate){
+
+        navigator.vibrate([80,60,80]);
+
+    }
+
+    lockCard.classList.add("shake");
+
+    setTimeout(()=>{
+
+        lockCard.classList.remove("shake");
+
+        clearCode();
+
+    },350);
+
+}
+
+function unlock(){
+
+    if(navigator.vibrate){
+
+        navigator.vibrate(100);
+
+    }
+
+    const gift=document.querySelector(".gift");
+
+    gift.innerHTML="💖";
+
+    gift.style.transform="scale(1.2)";
+
+launchConfetti();
+
+    lockCard.classList.add("unlock");
+
+    setTimeout(()=>{
+
+        lockScreen.style.display="none";
+
+        // ==========================
+        // START YOUR WEBSITE HERE
+        // ==========================
+
+        if(typeof startSlides==="function"){
+
+            startSlides();
+
+        }
+
+        const music=document.getElementById("bgMusic");
+
+        if(music){
+
+            music.play().catch(()=>{});
+
+        }
+
+    },800);
+
+}
+
+function checkPasscode(){
+
+    if(enteredCode===PASSCODE){
+
+        unlock();
+
+    }else{
+
+        wrongCode();
+
+    }
+
+}
+
+digitButtons.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        if(enteredCode.length>=4){
+
+            return;
+
+        }
+
+        enteredCode+=button.textContent.trim();
+
+        updateDots();
+
+        if(enteredCode.length===4){
+
+            setTimeout(checkPasscode,180);
+
+        }
+
+    });
+
+});
+
+deleteBtn.addEventListener("click",()=>{
+
+    enteredCode=enteredCode.slice(0,-1);
+
+    updateDots();
+
+});
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key>="0" && e.key<="9"){
+
+        if(enteredCode.length<4){
+
+            enteredCode+=e.key;
+
+            updateDots();
+
+            if(enteredCode.length===4){
+
+                setTimeout(checkPasscode,180);
+
+            }
+
+        }
+
+    }
+
+    if(e.key==="Backspace"){
+
+        enteredCode=enteredCode.slice(0,-1);
+
+        updateDots();
+
+    }
+
+});
+
+
+// ======================================
+// Confetti
+// ======================================
+
+function launchConfetti(){
+
+    const container=document.getElementById("confetti");
+
+    const colors=[
+        "#ff4d6d",
+        "#ffd93d",
+        "#8cff66",
+        "#7ad7ff",
+        "#c084fc",
+        "#ffffff"
+    ];
+
+    for(let i=0;i<120;i++){
+
+        const piece=document.createElement("div");
+
+        piece.className="confetti";
+
+        piece.style.left=Math.random()*100+"vw";
+
+        piece.style.background=
+        colors[Math.floor(Math.random()*colors.length)];
+
+        piece.style.animationDelay=
+        (Math.random()*0.6)+"s";
+
+        piece.style.transform=
+        "rotate("+Math.random()*360+"deg)";
+
+        container.appendChild(piece);
+
+        setTimeout(()=>{
+
+            piece.remove();
+
+        },3500);
+
+    }
+
+}
+
+
+
+/* ==========================================
+        LETTER COLLECTION SYSTEM
+========================================== */
+
+const letters = {
+  1: {
+    title: "💌 Read Me First",
+    text: `Dear Mahima,
+
+Happy Birthday! 🎂
+
+If you're reading this, it means you've reached one of my favorite parts of this little surprise.
+
+I hope this website makes you smile, even if it's just for a few moments.
+
+Now... let's continue opening the other letters. ❤️`
+  },
+
+  2: {
+    title: "🌸 A Little Sunshine",
+    text: `Whenever life feels difficult,
+
+remember that you have a smile capable of making someone else's day brighter.
+
+Never stop being yourself.
+
+Keep shining. 🌸`
+  },
+
+  3: {
+    title: "🌙 Quiet Thoughts",
+    text: `Sometimes...
+
+The smallest moments become the most beautiful memories.
+
+I hope today becomes one of those memories for you.
+
+Happy Birthday. 🌙`
+  },
+
+  4: {
+    title: "⭐ Dreams",
+    text: `May every dream you chase become reality.
+
+May every year bring more happiness than the previous one.
+
+Keep believing in yourself.
+
+You're amazing. ⭐`
+  },
+
+  5: {
+    title: "🎁 Tiny Secret",
+    text: `Here's a tiny secret...
+
+You deserve every happiness this world can offer.
+
+Never forget how special you are.
+
+🎁`
+  },
+
+  6: {
+    title: "❤️ Opened Last",
+    text: `Thank you for opening every little letter.
+
+This website was made with lots of care just
+
+Happy Birthday once again.
+
+I hope this day becomes unforgettable.
+
+❤️`
+  }
+};
+
+const openedLetters = new Set();
+
+const viewer = document.getElementById("letterViewer");
+const title = document.getElementById("letterTitle");
+const content = document.getElementById("letterContent");
+const continueBtn = document.getElementById("continueLetters");
+
+document.querySelectorAll(".letter-envelope").forEach(letter => {
+
+    letter.addEventListener("click", () => {
+
+        const id = Number(letter.dataset.letter);
+
+        // Last letter locked
+        if(id === 6 && openedLetters.size < 5){
+
+            alert("❤️ Read the other five letters first.");
+
+            return;
+
+        }
+
+        letter.classList.add("opening");
+
+setTimeout(()=>{
+
+letter.classList.remove("opening");
+
+title.textContent=letters[id].title;
+
+content.innerHTML="";
+
+viewer.classList.add("show");
+
+document
+.querySelector(".letter-paper")
+.classList.add("open");
+
+typeLetter(
+letters[id].text,
+content
+);
+
+launchPetals();
+
+},550);
+
+        openedLetters.add(id);
+
+        updateLetters();
+
+    });
+
+});
+
+document.getElementById("closeLetter").addEventListener("click", () => {
+
+    const paper=document.querySelector(".letter-paper");
+
+paper.classList.remove("open");
+
+paper.classList.add("close");
+
+setTimeout(()=>{
+
+viewer.classList.remove("show");
+
+paper.classList.remove("close");
+
+},300);
+
+});
+
+function updateLetters(){
+
+    for(let i = 1; i <= 6; i++){
+
+        const heart = document.getElementById("heart" + i);
+
+        if(i === 6){
+
+            if(openedLetters.size >= 5){
+
+                heart.textContent = "🤍";
+
+                unlockFinalLetter();
+
+            }
+
+            if(openedLetters.has(6)){
+
+                heart.textContent = "❤️";
+
+            }
+
+        }else{
+
+            heart.textContent = openedLetters.has(i) ? "❤️" : "🤍";
+
+        }
+
+    }
+
+    if(openedLetters.size === 6){
+
+     continueBtn.onclick = () => {
+
+    // Hide the current slide
+    slides[current].classList.remove("active");
+
+    // Show celebration page
+    celebrationStage.style.display = "flex";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+};
+
+    }
+
+}
+
+
+
+// ====================================
+// Typewriter
+// ====================================
+
+function typeLetter(text, target){
+
+    target.innerHTML = "";
+
+    let i = 0;
+
+    const timer = setInterval(()=>{
+
+        if(text.charAt(i) === "\n"){
+
+            target.innerHTML += "<br>";
+
+        }else{
+
+            target.innerHTML += text.charAt(i);
+
+        }
+
+        target.scrollTop = target.scrollHeight;
+
+        i++;
+
+        if(i >= text.length){
+
+            clearInterval(timer);
+
+        }
+
+    },18);
+
+}
+
+
+// ====================================
+// Petals
+// ====================================
+
+function launchPetals(){
+
+const container=document.getElementById("petals");
+
+for(let i=0;i<30;i++){
+
+const p=document.createElement("div");
+
+p.className="petal";
+
+p.innerHTML=Math.random()>.5?"🌸":"🌺";
+
+p.style.left=Math.random()*100+"vw";
+
+p.style.animationDuration=
+(5+Math.random()*4)+"s";
+
+container.appendChild(p);
+
+setTimeout(()=>{
+
+p.remove();
+
+},9000);
+
+}
+
+}
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const giftBox = document.getElementById("giftBox");
+    const lettersGrid = document.getElementById("lettersGrid");
+
+    if(!giftBox || !lettersGrid) return;
+
+giftBox.addEventListener("click", () => {
+
+    if(giftBox.classList.contains("opened")) return;
+
+    giftBox.classList.add("opened");
+
+    launchConfetti();
+
+    setTimeout(() => {
+
+        giftBox.remove();
+
+        lettersGrid.classList.remove("hidden-grid");
+        lettersGrid.classList.add("show-grid");
+
+    },700);
+
+});
+});
+
+
+
+function unlockFinalLetter(){
+
+    const key=document.createElement("div");
+
+    key.className="magic-key";
+
+    key.innerHTML="🗝️";
+
+    document.body.appendChild(key);
+
+    setTimeout(()=>{
+
+        key.remove();
+
+        const last=document.querySelector('[data-letter="6"]');
+
+        last.classList.remove("locked");
+
+        last.classList.add("unlockFlash");
+
+        document.getElementById("heart6").innerHTML="🤍";
+
+        launchConfetti();
+
+    },1600);
+
+}
+
+
+
+
+/* ==========================================
+   CELEBRATION SLIDE
+========================================== */
+
+const celebrationStage = document.getElementById("celebrationStage");
+const celebrationContinue = document.getElementById("celeContinueBtn");
+
+celebrationStage.style.display = "none";
+
+function goToFinalStage() {
+
+    celebrationStage.style.display = "none";
+
+    goTo(5);   // Final Birthday Slide
+}
+
+celebrationContinue.addEventListener("click", goToFinalStage);
+
+setInterval(() => {
+    if (celebrationStage.style.display === "flex") {
+        goToFinalStage();
+    }
+}, 8000);
+
 </script>
+
+
+<!-- Confetti Container -->
+<div id="confetti"></div>
+
 
 
 
