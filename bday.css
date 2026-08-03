@@ -1156,20 +1156,21 @@ opacity:0;
 =================================================== */
 
 #lockScreen{
+
     position:fixed;
     inset:0;
-    z-index:999999;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    overflow:hidden;
+    z-index:999999;
 
-    background:
-    radial-gradient(circle at top,#8d2fff 0%,#4d0d6e 40%,#170322 100%);
+    background:rgba(0,0,0,.10);
 
-    animation:bgMove 10s ease infinite;
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
 }
 
 @keyframes bgMove{
@@ -1229,7 +1230,7 @@ transform:translateY(-10px);
 
     letter-spacing:5px;
 
-    color:#d7c8ff;
+    color:var(--pink);
 
     font-size:13px;
 
@@ -1240,7 +1241,7 @@ transform:translateY(-10px);
 
 .name{
 
-    color:white;
+    color:var(--ink);
 
     font-size:54px;
 
@@ -1251,7 +1252,7 @@ transform:translateY(-10px);
 
 .subtitle{
 
-    color:#eadfff;
+    color:var(--ink-dim);
 
     font-size:20px;
 
@@ -1310,9 +1311,17 @@ transform:translateY(-10px);
 
     border-radius:22px;
 
-    background:rgba(255,255,255,.10);
+    background:var(--card);
 
-    color:white;
+    color:var(--ink);
+
+    border:1px solid var(--card-border);
+
+    box-shadow:0 8px 18px var(--card-shadow);
+
+    backdrop-filter:blur(12px);
+
+    transition:.25s;
 
     font-size:38px;
 
@@ -1342,7 +1351,7 @@ transform:translateY(-10px);
 
 .hint{
 
-    color:#d5c7ff;
+    color:var(--ink-dim);
 
     margin-top:24px;
 
