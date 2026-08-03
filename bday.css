@@ -2028,3 +2028,136 @@ font-size:16px;
 }
 
 }
+
+
+
+/* ==========================================
+        LETTER PREMIUM ANIMATIONS
+========================================== */
+
+#petals{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:999998;
+}
+
+.petal{
+    position:absolute;
+    top:-30px;
+    font-size:22px;
+    animation:petalFall linear forwards;
+}
+
+@keyframes petalFall{
+
+0%{
+transform:translateY(-20px) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:
+translateY(110vh)
+translateX(120px)
+rotate(540deg);
+
+opacity:0;
+}
+
+}
+
+/* Lift envelope */
+
+.letter-envelope.opening{
+
+animation:
+liftEnvelope .6s ease forwards;
+
+}
+
+@keyframes liftEnvelope{
+
+0%{
+transform:scale(1);
+}
+
+40%{
+transform:
+translateY(-18px)
+scale(1.08)
+rotate(-4deg);
+}
+
+100%{
+transform:
+translateY(-60px)
+scale(.2);
+opacity:0;
+}
+
+}
+
+/* Paper unfold */
+
+.letter-paper{
+
+transform-origin:top center;
+
+}
+
+.letter-paper.open{
+
+animation:paperUnfold .6s ease;
+
+}
+
+@keyframes paperUnfold{
+
+0%{
+
+transform:
+rotateX(-90deg)
+scale(.85);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:
+rotateX(0)
+scale(1);
+
+opacity:1;
+
+}
+
+}
+
+/* Close */
+
+.letter-paper.close{
+
+animation:paperClose .35s ease forwards;
+
+}
+
+@keyframes paperClose{
+
+100%{
+
+transform:
+scale(.8);
+
+opacity:0;
+
+}
+
+}
