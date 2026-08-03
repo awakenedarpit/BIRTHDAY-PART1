@@ -1357,11 +1357,9 @@ function updateLetters(){
 
     if(openedLetters.size === 6){
 
-        continueBtn.addEventListener("click",()=>{
-
-    goTo(current+1);
-
-});
+        continueBtn.onclick = () => {
+    goTo(current + 1);
+};
 
     }
 
