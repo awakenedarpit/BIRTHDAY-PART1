@@ -1185,26 +1185,23 @@ filter:hue-rotate(20deg);
 }
 
 .lock-card{
-
     width:360px;
     max-width:92%;
+    padding:30px;
+    border-radius:32px;
 
-    padding:28px;
-
-    border-radius:34px;
-
-    background:rgba(255,255,255,.10);
+    background:var(--card);
+    border:1.5px solid var(--card-border);
+    box-shadow:0 15px 40px var(--card-shadow);
 
     backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-    border:1px solid rgba(255,255,255,.12);
-
-    box-shadow:
-    0 20px 60px rgba(0,0,0,.35);
+    color:var(--ink);
 
     text-align:center;
 
-    animation:popup .6s ease;
+    transition:.4s ease;
 }
 
 .gift{
