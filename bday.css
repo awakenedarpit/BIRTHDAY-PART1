@@ -2408,3 +2408,56 @@ box-shadow:0 0 30px rgba(255,120,160,.7);
     font-size:24px;
     cursor:pointer;
 }
+
+
+
+.magic-key{
+    position:fixed;
+    font-size:40px;
+    z-index:99999;
+    pointer-events:none;
+    animation:keyFly 1.6s ease forwards;
+}
+
+@keyframes keyFly{
+
+    0%{
+        left:50%;
+        top:90%;
+        transform:translate(-50%,0) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        left:50%;
+        top:35%;
+        transform:translate(-50%,0) scale(1.3) rotate(360deg);
+        opacity:1;
+    }
+
+}
+
+.unlockFlash{
+    animation:unlockFlash .8s;
+}
+
+@keyframes unlockFlash{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.3);
+        filter:drop-shadow(0 0 25px gold);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
