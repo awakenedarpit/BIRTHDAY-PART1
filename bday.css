@@ -1151,4 +1151,274 @@ opacity:0;
 
 
 
+/* ===================================================
+            PREMIUM PASSCODE SCREEN
+=================================================== */
 
+#lockScreen{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,#8d2fff 0%,#4d0d6e 40%,#170322 100%);
+
+    animation:bgMove 10s ease infinite;
+}
+
+@keyframes bgMove{
+
+0%,100%{
+filter:hue-rotate(0deg);
+}
+
+50%{
+filter:hue-rotate(20deg);
+}
+
+}
+
+.lock-card{
+
+    width:360px;
+    max-width:92%;
+
+    padding:28px;
+
+    border-radius:34px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+
+    text-align:center;
+
+    animation:popup .6s ease;
+}
+
+.gift{
+
+    font-size:72px;
+
+    margin-bottom:18px;
+
+    animation:giftFloat 3s ease-in-out infinite;
+}
+
+@keyframes giftFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+.top-title{
+
+    letter-spacing:5px;
+
+    color:#d7c8ff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.name{
+
+    color:white;
+
+    font-size:54px;
+
+    font-family:var(--serif);
+
+    margin-bottom:10px;
+}
+
+.subtitle{
+
+    color:#eadfff;
+
+    font-size:20px;
+
+    margin-bottom:28px;
+}
+
+.pass-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:30px;
+}
+
+.pass-dots span{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    border:3px solid rgba(255,255,255,.55);
+
+    transition:.25s;
+}
+
+.pass-dots span.active{
+
+    background:white;
+
+    transform:scale(1.15);
+}
+
+.number-pad{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+}
+
+.number-pad button{
+
+    width:90px;
+
+    height:78px;
+
+    margin:auto;
+
+    border:none;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.10);
+
+    color:white;
+
+    font-size:38px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.number-pad button:hover{
+
+    transform:scale(1.05);
+
+    background:rgba(255,255,255,.18);
+}
+
+.number-pad button:active{
+
+    transform:scale(.95);
+}
+
+.hint{
+
+    color:#d5c7ff;
+
+    margin-top:24px;
+
+    font-size:18px;
+}
+
+/* Unlock */
+
+.unlock{
+
+animation:unlock .8s forwards;
+}
+
+@keyframes unlock{
+
+100%{
+
+opacity:0;
+
+visibility:hidden;
+
+transform:scale(1.08);
+
+}
+
+}
+
+/* Wrong Code */
+
+.shake{
+
+animation:shake .35s;
+}
+
+@keyframes shake{
+
+20%{transform:translateX(-8px);}
+40%{transform:translateX(8px);}
+60%{transform:translateX(-6px);}
+80%{transform:translateX(6px);}
+100%{transform:translateX(0);}
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.lock-card{
+
+padding:22px;
+}
+
+.gift{
+
+font-size:64px;
+}
+
+.name{
+
+font-size:44px;
+}
+
+.number-pad button{
+
+width:84px;
+
+height:74px;
+
+font-size:34px;
+}
+
+.subtitle{
+
+font-size:18px;
+}
+}
