@@ -1156,34 +1156,21 @@ opacity:0;
 =================================================== */
 
 #lockScreen{
-
     position:fixed;
     inset:0;
+    z-index:999999;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    z-index:999999;
+    background:transparent;
 
-    background:rgba(0,0,0,.10);
-
-    backdrop-filter:blur(12px);
-
-    -webkit-backdrop-filter:blur(12px);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
 }
 
-@keyframes bgMove{
 
-0%,100%{
-filter:hue-rotate(0deg);
-}
-
-50%{
-filter:hue-rotate(20deg);
-}
-
-}
 
 .lock-card{
     width:360px;
