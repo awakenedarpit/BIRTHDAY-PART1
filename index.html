@@ -735,17 +735,16 @@ setTimeout(()=>sparkle.remove(),700);
   stage.addEventListener("click", (e) => {
 
     if (
-        e.target.closest(".wish-box") ||
-        e.target.closest("textarea") ||
-        e.target.closest("button") ||
-        e.target.closest(".wish-cloud") ||
-        e.target.closest("#giftBox") ||
-        e.target.closest("#lettersGrid") ||
-        e.target.closest("#letterViewer")
-    ) {
-        return;
-    }
-
+    e.target.closest('.wish-box') ||
+    e.target.closest('textarea') ||
+    e.target.closest('button') ||
+    e.target.closest('.wish-cloud') ||
+    e.target.closest('.gift-box') ||
+    e.target.closest('.letter-envelope') ||
+    e.target.closest('#letterViewer')
+){
+    return;
+}
     spawnTapSparkle(e.clientX, e.clientY);
     next();
 });
@@ -1463,20 +1462,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if(!giftBox || !lettersGrid) return;
 
-    giftBox.addEventListener("click", () => {
+    giftBox.addEventListener("click", (e) => {
 
-        giftBox.classList.add("opened");
+    e.stopPropagation();   // Prevent slide change
 
-        setTimeout(() => {
+    giftBox.classList.add("opened");
 
-            giftBox.style.display = "none";
+    setTimeout(() => {
 
-            lettersGrid.classList.remove("hidden-grid");
-            lettersGrid.classList.add("show-grid");
+        giftBox.remove();
 
-        },700);
+        lettersGrid.classList.remove("hidden-grid");
+        lettersGrid.classList.add("show-grid");
 
-    });
+    }, 800);
+
+});
 
 });
 
