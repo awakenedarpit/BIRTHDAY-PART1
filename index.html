@@ -1433,8 +1433,9 @@ const giftBox = document.getElementById("giftBox");
 const lettersGrid = document.getElementById("lettersGrid");
 
 giftBox.addEventListener("click", (e) => {
-
     e.stopPropagation();
+
+    alert("Gift clicked!");
 
     giftBox.classList.add("open-box");
 
@@ -1443,7 +1444,6 @@ giftBox.addEventListener("click", (e) => {
         lettersGrid.classList.remove("hidden-grid");
         lettersGrid.classList.add("show-grid");
     }, 700);
-
 });
 
 
