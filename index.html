@@ -1450,8 +1450,19 @@ function updateLetters(){
 
     if(openedLetters.size === 6){
 
-        continueBtn.onclick = () => {
-    goTo(current + 1);
+     continueBtn.onclick = () => {
+
+    // Hide the current slide
+    slides[current].classList.remove("active");
+
+    // Show celebration page
+    celebrationStage.style.display = "flex";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 };
 
     }
@@ -1599,33 +1610,22 @@ function unlockFinalLetter(){
 const celebrationStage = document.getElementById("celebrationStage");
 const celebrationContinue = document.getElementById("celeContinueBtn");
 
-// Change this to your FINAL slide ID
-const finalStage = document.getElementById("finalStage");
-
-// Hide celebration initially
 celebrationStage.style.display = "none";
 
-/* Show Celebration */
-function showCelebration(){
+function goToFinalStage() {
 
-    // Hide all stages
-    document.querySelectorAll(".stage").forEach(stage=>{
-        stage.style.display="none";
-    });
+    celebrationStage.style.display = "none";
 
-    // Show celebration
-    celebrationStage.style.display="flex";
+    goTo(5);   // Final Birthday Slide
+}
 
-    // Scroll to top
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+celebrationContinue.addEventListener("click", goToFinalStage);
 
-    // Automatically continue after 8 seconds
-    setTimeout(()=>{
+setInterval(() => {
+    if (celebrationStage.style.display === "flex") {
         goToFinalStage();
-    },8000);
+    }
+}, 8000);
 
 }
 
