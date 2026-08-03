@@ -2353,61 +2353,6 @@ box-shadow:0 0 30px rgba(255,120,160,.7);
     }
 }
 
-#letterViewer{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(8px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    opacity:0;
-    visibility:hidden;
-    transition:.35s;
-    z-index:9999;
-}
-
-#letterViewer.show{
-    opacity:1;
-    visibility:visible;
-}
-
-.letter-paper{
-    width:min(92vw,420px);
-    max-height:82vh;
-    overflow-y:auto;
-    background:#fffdf7;
-    border-radius:22px;
-    padding:28px;
-    box-shadow:0 30px 60px rgba(0,0,0,.25);
-    transform:translateY(80px) scale(.8);
-    opacity:0;
-    transition:.55s cubic-bezier(.2,.9,.2,1);
-}
-
-.letter-paper.open{
-    transform:translateY(0) scale(1);
-    opacity:1;
-}
-
-#letterTitle{
-    text-align:center;
-    margin-bottom:18px;
-}
-
-#letterContent{
-    line-height:1.9;
-    white-space:pre-wrap;
-    font-size:17px;
-}
-
-#closeLetter{
-    float:right;
-    border:none;
-    background:none;
-    font-size:24px;
-    cursor:pointer;
-}
 
 
 
