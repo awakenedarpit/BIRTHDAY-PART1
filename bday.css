@@ -2406,3 +2406,88 @@ box-shadow:0 0 30px rgba(255,120,160,.7);
     }
 
 }
+
+
+/* =========================================
+   CELEBRATION SLIDE
+========================================= */
+
+.celebration-stage{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    background:linear-gradient(-45deg,#ffdde8,#ffd6f5,#e8d8ff,#fff3d8);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+}
+
+/* Background */
+
+.celebration-bg{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+/* Content */
+
+.celebration-content{
+    position:relative;
+    z-index:5;
+    max-width:520px;
+}
+
+/* Heading */
+
+.cele-title{
+    font-family:var(--serif);
+    font-size:2.2rem;
+    color:#fff;
+    text-shadow:0 0 18px rgba(255,120,200,.8);
+    animation:floatText 3s ease-in-out infinite;
+}
+
+.cele-name{
+    font-family:var(--serif);
+    font-size:3rem;
+    margin-top:8px;
+    color:#ff4fa2;
+    text-shadow:0 0 25px rgba(255,255,255,.9);
+    animation:glowName 2.5s ease-in-out infinite;
+}
+
+/* Photo */
+
+.photo-glow{
+    width:220px;
+    height:220px;
+    margin:35px auto;
+    border-radius:50%;
+    padding:8px;
+    background:linear-gradient(45deg,#ff8ac8,#ffd86b,#8dd8ff,#d78cff);
+    animation:rotateGlow 8s linear infinite;
+}
+
+.cele-photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid white;
+    box-shadow:0 15px 45px rgba(0,0,0,.25);
+    animation:photoPop .8s ease;
+}
+
+/* Message */
+
+.cele-message{
+    margin-top:18px;
+    font-size:1.05rem;
+    line-height:1.8;
+    color:#5b4b6a
