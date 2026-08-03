@@ -1396,28 +1396,37 @@ function updateLetters(){
 // Typewriter
 // ====================================
 
-function typeLetter(text,target){
+function typeLetter(text, target){
 
-let i=0;
+    target.innerHTML = "";
 
-target.innerHTML="";
+    let i = 0;
 
-const speed=18;
+    const timer = setInterval(()=>{
 
-const timer=setInterval(()=>{
+        if(text.charAt(i) === "\n"){
 
-target.innerHTML+=text.charAt(i);
+            target.innerHTML += "<br>";
 
-i++;
+        }else{
 
-if(i>=text.length){
+            target.innerHTML += text.charAt(i);
 
-clearInterval(timer);
+        }
+
+        target.scrollTop = target.scrollHeight;
+
+        i++;
+
+        if(i >= text.length){
+
+            clearInterval(timer);
+
+        }
+
+    },18);
 
 }
-
-},speed);
-
 }
 
 // ====================================
@@ -1462,11 +1471,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if(!giftBox || !lettersGrid) return;
 
-    giftBox.addEventListener("click", (e) => {
+giftBox.addEventListener("click", () => {
 
-    e.stopPropagation();   // Prevent slide change
+    if(giftBox.classList.contains("opened")) return;
 
     giftBox.classList.add("opened");
+
+    launchConfetti();
 
     setTimeout(() => {
 
@@ -1475,11 +1486,42 @@ document.addEventListener("DOMContentLoaded", () => {
         lettersGrid.classList.remove("hidden-grid");
         lettersGrid.classList.add("show-grid");
 
-    }, 800);
+    },700);
 
 });
-
 });
+
+
+
+function unlockFinalLetter(){
+
+    const key=document.createElement("div");
+
+    key.className="magic-key";
+
+    key.innerHTML="🗝️";
+
+    document.body.appendChild(key);
+
+    setTimeout(()=>{
+
+        key.remove();
+
+        const last=document.querySelector('[data-letter="6"]');
+
+        last.classList.remove("locked");
+
+        last.classList.add("unlockFlash");
+
+        document.getElementById("heart6").innerHTML="🤍";
+
+        launchConfetti();
+
+    },1600);
+
+}
+
+
 
 </script>
 
