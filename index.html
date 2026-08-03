@@ -406,7 +406,7 @@
         🎁
     </div>
 
-    <div class="letters-grid" id="lettersGrid">
+    <div class="letters-grid hidden-grid" id="lettersGrid">
 
             <button class="letter-envelope" data-letter="1">
 
@@ -1434,22 +1434,19 @@ p.remove();
 const giftBox = document.getElementById("giftBox");
 const lettersGrid = document.getElementById("lettersGrid");
 
-giftBox.addEventListener("click", () => {
+giftBox.addEventListener("click", (e) => {
 
-    giftBox.classList.add("opened");
+    e.stopPropagation();
+
+    giftBox.classList.add("open-box");
 
     setTimeout(() => {
-
         giftBox.style.display = "none";
-
         lettersGrid.classList.remove("hidden-grid");
-
         lettersGrid.classList.add("show-grid");
-
-    },700);
+    }, 700);
 
 });
-
 
 
 
