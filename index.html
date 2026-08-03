@@ -10,6 +10,69 @@
 </head>
 <body data-theme="dark">
 
+<!-- ==============================
+     PREMIUM LOCK SCREEN v2
+================================ -->
+<div id="lockScreen">
+
+    <div class="lock-card">
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <p class="top-title">
+            A BIRTHDAY SURPRISE FOR
+        </p>
+
+        <h1 class="name">
+            Mahima
+        </h1>
+
+        <p class="subtitle">
+            🔐 Enter the Secret Passcode
+        </p>
+
+        <div id="passDots" class="pass-dots">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <div class="number-pad">
+
+            <button class="digit">1</button>
+            <button class="digit">2</button>
+            <button class="digit">3</button>
+
+            <button class="digit">4</button>
+            <button class="digit">5</button>
+            <button class="digit">6</button>
+
+            <button class="digit">7</button>
+            <button class="digit">8</button>
+            <button class="digit">9</button>
+
+            <div></div>
+
+            <button class="digit">0</button>
+
+            <button id="deleteBtn">
+                ⌫
+            </button>
+
+        </div>
+
+        <p class="hint">
+            Tap the numbers to enter your code
+        </p>
+
+    </div>
+
+</div>
 
 
   <div class="aurora"><span></span><span></span><span></span><span></span></div>
@@ -749,6 +812,189 @@ setInterval(()=>{
 
 
 
+/* ==========================================
+        PREMIUM PASSCODE SYSTEM
+========================================== */
+
+// ===== CHANGE YOUR PASSCODE HERE =====
+const PASSCODE = "3107";
+
+// =====================================
+
+let enteredCode = "";
+
+const lockScreen = document.getElementById("lockScreen");
+const lockCard = document.querySelector(".lock-card");
+
+const dots = document.querySelectorAll("#passDots span");
+
+const digitButtons = document.querySelectorAll(".digit");
+
+const deleteBtn = document.getElementById("deleteBtn");
+
+function updateDots(){
+
+    dots.forEach((dot,index)=>{
+
+        if(index < enteredCode.length){
+
+            dot.classList.add("active");
+
+        }else{
+
+            dot.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+function clearCode(){
+
+    enteredCode="";
+
+    updateDots();
+
+}
+
+function wrongCode(){
+
+    if(navigator.vibrate){
+
+        navigator.vibrate([80,60,80]);
+
+    }
+
+    lockCard.classList.add("shake");
+
+    setTimeout(()=>{
+
+        lockCard.classList.remove("shake");
+
+        clearCode();
+
+    },350);
+
+}
+
+function unlock(){
+
+    if(navigator.vibrate){
+
+        navigator.vibrate(100);
+
+    }
+
+    const gift=document.querySelector(".gift");
+
+    gift.innerHTML="💖";
+
+    gift.style.transform="scale(1.2)";
+
+    lockCard.classList.add("unlock");
+
+    setTimeout(()=>{
+
+        lockScreen.style.display="none";
+
+        // ==========================
+        // START YOUR WEBSITE HERE
+        // ==========================
+
+        if(typeof startSlides==="function"){
+
+            startSlides();
+
+        }
+
+        const music=document.getElementById("bgMusic");
+
+        if(music){
+
+            music.play().catch(()=>{});
+
+        }
+
+    },800);
+
+}
+
+function checkPasscode(){
+
+    if(enteredCode===PASSCODE){
+
+        unlock();
+
+    }else{
+
+        wrongCode();
+
+    }
+
+}
+
+digitButtons.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        if(enteredCode.length>=4){
+
+            return;
+
+        }
+
+        enteredCode+=button.textContent.trim();
+
+        updateDots();
+
+        if(enteredCode.length===4){
+
+            setTimeout(checkPasscode,180);
+
+        }
+
+    });
+
+});
+
+deleteBtn.addEventListener("click",()=>{
+
+    enteredCode=enteredCode.slice(0,-1);
+
+    updateDots();
+
+});
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key>="0" && e.key<="9"){
+
+        if(enteredCode.length<4){
+
+            enteredCode+=e.key;
+
+            updateDots();
+
+            if(enteredCode.length===4){
+
+                setTimeout(checkPasscode,180);
+
+            }
+
+        }
+
+    }
+
+    if(e.key==="Backspace"){
+
+        enteredCode=enteredCode.slice(0,-1);
+
+        updateDots();
+
+    }
+
+});
 
 
 
