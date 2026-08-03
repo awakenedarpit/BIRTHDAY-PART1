@@ -1151,3 +1151,122 @@ opacity:0;
 
 
 
+
+/* =========================================
+        PREMIUM PASSCODE LOCK SCREEN
+========================================= */
+
+#lockScreen{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top,#ff9ac8 0%,transparent 35%),
+    radial-gradient(circle at bottom,#b388ff 0%,transparent 35%),
+    rgba(8,8,15,.82);
+
+    backdrop-filter:blur(18px);
+    overflow:hidden;
+}
+
+.lock-container{
+
+    width:340px;
+    max-width:90%;
+
+    padding:30px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(22px);
+
+    box-shadow:
+    0 15px 45px rgba(0,0,0,.45);
+
+    text-align:center;
+
+    animation:popup .6s ease;
+}
+
+.lock-icon{
+
+    font-size:60px;
+
+    margin-bottom:12px;
+
+    animation:floatLock 3s ease-in-out infinite;
+}
+
+.lock-container h1{
+
+    color:white;
+
+    font-size:30px;
+
+    margin-bottom:6px;
+
+    font-family:var(--serif);
+}
+
+.lock-container p{
+
+    color:#ddd;
+
+    margin-bottom:22px;
+
+    font-family:var(--sans);
+}
+
+.dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:28px;
+}
+
+.dots span{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    border:2px solid white;
+
+    transition:.3s;
+}
+
+.dots span.active{
+
+    background:white;
+
+    transform:scale(1.15);
+}
+
+.keypad{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:16px;
+}
+
+.keypad button{
+
+    width
+
